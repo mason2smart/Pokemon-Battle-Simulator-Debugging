@@ -11,6 +11,9 @@ public class Pokemon {
 	private int[] stats = new int[6];
 	private int[] currentStats;
 	private int natureVal = 1; //temp int, until implement nature
+
+	private String[] strMoves;
+	private Move[] moves;
 //	private int HP;
 //	private int attack;
 //	private int defense;
@@ -63,7 +66,10 @@ public class Pokemon {
 
 	}
 
-	public void calculateHP(){}
+	public void calculate(){
+
+
+	}
 
 	public String getName(){
 
@@ -163,6 +169,11 @@ public class Pokemon {
 	public void setCurrentHP(int currHP){
 
 		currentStats[0] = currHP;
+	}
+
+	public void setMoves(String[] inMoves){
+
+		strMoves = inMoves;
 	}
 
 	public void statsToString(){
