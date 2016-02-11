@@ -18,10 +18,11 @@ public class Move {
 
 		try {
 			JSONParser parser = new JSONParser();
-			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader("data/typechart.txt"));
+			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader("data/outputmoves.txt"));
 		} catch (IOException | ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("RIP ");
 		}
 
 

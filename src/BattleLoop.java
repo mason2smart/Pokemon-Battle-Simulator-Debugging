@@ -30,7 +30,8 @@ public class BattleLoop {
 
 		battleDamage(pok1,pok2);
 
-		parseFile();
+		//parseFile();
+		Move m = new Move("Jizz");
 	}
 
 	public void parseFile(){
@@ -39,17 +40,32 @@ public class BattleLoop {
 			BufferedReader reader = new BufferedReader(new FileReader("data/moves.txt"));
 			String currLine = null;
 			PrintWriter output = new PrintWriter("data/outputmoves.txt");
+			boolean hasPassed = false;
+			boolean isFunction = false;
+			int cnt = 0;
 
 			while ((currLine = reader.readLine()) != null){
 
 
-				String pattern = "\\w+:";
+				String pattern = "\"\\w+\":"; //In case we are out of a function...
 				Pattern p = Pattern.compile(pattern);
 				Matcher m = p.matcher(currLine);
 
+				if(m.find()){ //check to break
+					//output.println(currLine);
+					isFunction = false;
+				}
+
+
+				if(isFunction == false){
+				pattern = "\\w+:"; //looks for naked JSON objects
+				p = Pattern.compile(pattern);
+				m = p.matcher(currLine);
+
 				//System.out.println(currLine);
 
-				if(m.find()){
+				while(m.find()){
+
 
 					int s1 = m.start();
 					int s2 = m.end() - 1;
@@ -59,9 +75,71 @@ public class BattleLoop {
 					str = "\"" + str + "\"";
 					currLine = begStr + str + endStr;
 					//output.println(begStr + str + endStr);
+					//output.println(s1 + "  " + s2);
+					m = p.matcher(currLine);
 				}
 
-				output.println(currLine);
+				//cnt++;
+
+				//if(cnt < 18){
+
+				pattern = "\\'\\w+\\'"; //this looks for single-quoted stuff
+				p = Pattern.compile(pattern);
+				m = p.matcher(currLine);
+
+				if(m.find()){ //if found,
+					int s1 = m.start() +1;
+					int s2 = m.end() - 1;
+					String str = currLine.substring(s1,s2);
+					String begStr = currLine.substring(0,s1-1);
+					String endStr = currLine.substring(s2+1);
+					str = "\"" + str + "\"";
+
+					currLine = begStr + str + endStr; //cut it out from line, replace it with null
+					output.println(currLine);//push to output
+				}
+
+				pattern = "\\/\\/"; //this looks for double-slash commented out stuff
+				p = Pattern.compile(pattern);
+				m = p.matcher(currLine);
+
+				if(m.find()){ //if found,
+					int s1 = m.start();
+
+					String begStr = currLine.substring(0,m.start());
+					currLine = begStr;
+				}
+
+				pattern = "function"; //this looks for "function"
+				p = Pattern.compile(pattern);
+				m = p.matcher(currLine);
+
+				if(m.find()){ //if found,
+					String begStr = currLine.substring(0,m.start());
+					currLine = begStr + "null,"; //cut it out from line, replace it with null
+					output.println(currLine);//push to output
+					isFunction = true;
+				}
+
+				pattern = "\"on\\w+\":"; //this looks for "on"
+				p = Pattern.compile(pattern);
+				m = p.matcher(currLine);
+
+				if(m.find()){ //if "on" is found
+
+					String begStr = currLine.substring(0,m.end()+1);
+					currLine = begStr + "null,"; //cut it out from line, replace it with null
+					output.println(currLine);//push to output
+
+					isFunction = true;
+					System.out.println(isFunction);
+				}
+				}
+
+
+				if(isFunction == false){ //if we're in a function, don't print anything
+					output.println(currLine);//}
+				}
 
 			}
 			output.close();
