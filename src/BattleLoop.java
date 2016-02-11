@@ -1,6 +1,11 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -24,6 +29,50 @@ public class BattleLoop {
 		pok2.statsToString();
 
 		battleDamage(pok1,pok2);
+
+		parseFile();
+	}
+
+	public void parseFile(){
+
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("data/moves.txt"));
+			String currLine = null;
+			PrintWriter output = new PrintWriter("data/outputmoves.txt");
+
+			while ((currLine = reader.readLine()) != null){
+
+
+				String pattern = "\\w+:";
+				Pattern p = Pattern.compile(pattern);
+				Matcher m = p.matcher(currLine);
+
+				//System.out.println(currLine);
+
+				if(m.find()){
+
+					int s1 = m.start();
+					int s2 = m.end() - 1;
+					String str = currLine.substring(s1,s2);
+					String begStr = currLine.substring(0,s1);
+					String endStr = currLine.substring(s2);
+					str = "\"" + str + "\"";
+					currLine = begStr + str + endStr;
+					//output.println(begStr + str + endStr);
+				}
+
+				output.println(currLine);
+
+			}
+			output.close();
+			reader.close();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+
 
 
 	}
