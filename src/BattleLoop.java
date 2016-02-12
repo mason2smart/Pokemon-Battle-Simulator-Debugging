@@ -22,22 +22,23 @@ public class BattleLoop {
 		Pokemon pok1 = new Pokemon("Volcarona", new String[]{"Bug","Fire"}, "Modest", 100, 85, 60, 65, 135, 105, 100, 31, 31, 31, 31, 31, 31, 72, 0, 0, 252, 0, 184);
 		Pokemon pok2 = new Pokemon("Garchomp", new String[]{"Dragon","Ground"}, "Adamant", 100, 108, 130, 95, 80, 85, 102, 31, 31, 31, 31, 31, 31, 4, 252, 0, 0, 0, 252);
 
-		pok1.setStrMoves(new String[]{"Fire Blast","Ice Beam","Thunder","Hyper Beam"});
+		//pok1.setStrMoves(new String[]{"Fire Blast","Ice Beam","Thunder","Hyper Beam"});
 		pok1.setMoves(new String[]{"Fire Blast","Ice Beam","Thunder","Hyper Beam"});
+		pok2.setMoves(new String[]{"Outrage","Earthquake","Stone Edge","Giga Impact"});
 
 
 		pok1.statsToString();
 		pok2.statsToString();
 
-		battleDamage(pok1,pok2);
-
-		//parseFile();
-//		Move m = new Move("Absorb");
-//		Move d = new Move("Fire Blast");
-//		Move c = new Move("Power-Up Punch");
-//		System.out.println(m.toString());
-//		System.out.println(d.toString());
-//		System.out.println(c.toString());
+		battleDamage(pok1,0,pok2);
+		battleDamage(pok1,1,pok2);
+		battleDamage(pok1,2,pok2);
+		battleDamage(pok1,3,pok2);
+		
+		battleDamage(pok2,0,pok1);
+		battleDamage(pok2,1,pok1);
+		battleDamage(pok2,2,pok1);
+		battleDamage(pok2,3,pok1);		
 	}
 
 	public void parseFile(){
@@ -163,18 +164,36 @@ public class BattleLoop {
 
 
 
-	public void battleDamage(Pokemon p1, Pokemon p2){
+	public void battleDamage(Pokemon p1, int moveNum, Pokemon p2){
 
 
-		System.out.println(p1.getLevel() + " " + p1.getCurrentSpAtk() + " " + p2.getCurrentSpDef());
+//		System.out.println(p1.getLevel() + " " + p1.getCurrentSpAtk() + " " + p2.getCurrentSpDef());
 //		int damage = (int) ((((2 * p1.getLevel() + 10)/(double) 250) * ((double) p1.getCurrentSpAtk()/p2.getCurrentSpDef()) * 120 + 2) * 1.5);
 //
 //		System.out.println("Fire Blast does " + damage + " dmg to " + p2.getName() + " (type effectiveness not implemented.)");
 
-		double typeEff = checkTypeEffectiveness(p2.getType(), "Fire");
+		Move attack = p1.getMove(moveNum);
 
-		int damage = (int) (((((2 * p1.getLevel() + 10)/(double) 250) * ((double) p1.getCurrentSpAtk()/p2.getCurrentSpDef()) * 120 + 2) * 1.5) * typeEff);
-		System.out.println("Fire Blast does " + damage + " dmg to " + p2.getName() + " (type effectiveness implmented!)");
+		double STAB = 1;
+
+		for(String t : p1.getType()){
+			if(t.equals(attack.getType())){ //If Pokemon type and move type are the same,
+				STAB = 1.5; //give STAB
+			}
+		}
+
+		double typeEff = checkTypeEffectiveness(p2.getType(), attack.getType());
+
+		if(attack.getCategory().equals("Physical")){
+			int damage = (int) (((((2 * p1.getLevel() + 10)/(double) 250) * ((double) p1.getCurrentAtk()/p2.getCurrentDef()) * attack.getBasePower() + 2) * STAB) * typeEff);
+			System.out.println(attack.getName() + " does " + damage + " dmg to " + p2.getName() + " (type effectiveness implmented!)");
+
+		}
+		if(attack.getCategory().equals("Special")){
+			int damage = (int) (((((2 * p1.getLevel() + 10)/(double) 250) * ((double) p1.getCurrentSpAtk()/p2.getCurrentSpDef()) * attack.getBasePower() + 2) * STAB) * typeEff);
+			System.out.println(attack.getName() + " does " + damage + " dmg to " + p2.getName() + " (type effectiveness implmented!)");
+
+		}
 
 		if(typeEff == 0){
 			System.out.println("It doesn't affect " + p2.getName() + "...");
@@ -191,6 +210,8 @@ public class BattleLoop {
 		if(typeEff == 4){
 			System.out.println("It's ultra effective!");
 		}
+
+		//STAB, type effectiiveness, implemented. Critical, Random, and held items, abilities, and weather not included.
 	}
 
 	public double checkTypeEffectiveness(String[] pokeType, String moveType){

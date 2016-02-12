@@ -183,6 +183,12 @@ public class Pokemon {
 		}
 	}
 
+	public Move getMove(int num){
+
+		return moves[num];
+
+	}
+
 
 	public void statsToString(){
 
