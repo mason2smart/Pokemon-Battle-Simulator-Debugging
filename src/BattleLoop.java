@@ -19,8 +19,11 @@ public class BattleLoop {
 
 		System.out.println("Welcome to the 2016 Pokemon Battle Simulator!!!");
 
-		Pokemon pok1 = new Pokemon("Volcarona", new String[]{"Bug","Fire"}, "Modest", 100, 85, 60, 65, 135, 105, 100, 31, 31, 31, 31, 31, 31, 72, 0, 0, 252, 0, 184);
-		Pokemon pok2 = new Pokemon("Garchomp", new String[]{"Dragon","Ground"}, "Adamant", 100, 108, 130, 95, 80, 85, 102, 31, 31, 31, 31, 31, 31, 4, 252, 0, 0, 0, 252);
+//		Pokemon pok1 = new Pokemon("Volcarona", new String[]{"Bug","Fire"}, "Modest", 100, 85, 60, 65, 135, 105, 100, 31, 31, 31, 31, 31, 31, 72, 0, 0, 252, 0, 184);
+//		Pokemon pok2 = new Pokemon("Garchomp", new String[]{"Dragon","Ground"}, "Adamant", 100, 108, 130, 95, 80, 85, 102, 31, 31, 31, 31, 31, 31, 4, 252, 0, 0, 0, 252);
+
+		Pokemon pok1 = new Pokemon("Volcarona", "Modest", 72, 0, 0, 252, 0, 184);
+		Pokemon pok2 = new Pokemon("Garchomp", "Adamant", 4, 252, 0, 0, 0, 252);
 
 		//pok1.setStrMoves(new String[]{"Fire Blast","Ice Beam","Thunder","Hyper Beam"});
 		pok1.setMoves(new String[]{"Fire Blast","Ice Beam","Thunder","Hyper Beam"});
@@ -34,11 +37,11 @@ public class BattleLoop {
 		battleDamage(pok1,1,pok2);
 		battleDamage(pok1,2,pok2);
 		battleDamage(pok1,3,pok2);
-		
+
 		battleDamage(pok2,0,pok1);
 		battleDamage(pok2,1,pok1);
 		battleDamage(pok2,2,pok1);
-		battleDamage(pok2,3,pok1);		
+		battleDamage(pok2,3,pok1);
 	}
 
 	public void parseFile(){
