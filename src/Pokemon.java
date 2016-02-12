@@ -13,7 +13,7 @@ public class Pokemon {
 	private int natureVal = 1; //temp int, until implement nature
 
 	private String[] strMoves;
-	private Move[] moves;
+	private Move[] moves = new Move[4];
 //	private int HP;
 //	private int attack;
 //	private int defense;
@@ -171,10 +171,18 @@ public class Pokemon {
 		currentStats[0] = currHP;
 	}
 
-	public void setMoves(String[] inMoves){
+	public void setStrMoves(String[] inMoves){
 
 		strMoves = inMoves;
 	}
+
+	public void setMoves(String[] inMoves){
+
+		for(int i = 0; i < moves.length; i++){
+			moves[i] = new Move(inMoves[i]);
+		}
+	}
+
 
 	public void statsToString(){
 

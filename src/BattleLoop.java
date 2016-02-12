@@ -22,6 +22,7 @@ public class BattleLoop {
 		Pokemon pok1 = new Pokemon("Volcarona", new String[]{"Bug","Fire"}, "Modest", 100, 85, 60, 65, 135, 105, 100, 31, 31, 31, 31, 31, 31, 72, 0, 0, 252, 0, 184);
 		Pokemon pok2 = new Pokemon("Garchomp", new String[]{"Dragon","Ground"}, "Adamant", 100, 108, 130, 95, 80, 85, 102, 31, 31, 31, 31, 31, 31, 4, 252, 0, 0, 0, 252);
 
+		pok1.setStrMoves(new String[]{"Fire Blast","Ice Beam","Thunder","Hyper Beam"});
 		pok1.setMoves(new String[]{"Fire Blast","Ice Beam","Thunder","Hyper Beam"});
 
 
@@ -31,7 +32,12 @@ public class BattleLoop {
 		battleDamage(pok1,pok2);
 
 		//parseFile();
-		Move m = new Move("Jizz");
+//		Move m = new Move("Absorb");
+//		Move d = new Move("Fire Blast");
+//		Move c = new Move("Power-Up Punch");
+//		System.out.println(m.toString());
+//		System.out.println(d.toString());
+//		System.out.println(c.toString());
 	}
 
 	public void parseFile(){
