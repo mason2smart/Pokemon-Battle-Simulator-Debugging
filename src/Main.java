@@ -6,7 +6,12 @@ public class Main {
 
 		BattleLoop b = new BattleLoop();
 		b.startBattle();
-		
+		try{
+		b.battle();
+		}catch(Exception e){
+			System.out.println("Bad input");
+		}
+
 	}
 
 }

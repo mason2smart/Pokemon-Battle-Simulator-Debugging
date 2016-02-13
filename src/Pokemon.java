@@ -9,6 +9,7 @@ import org.json.simple.parser.ParseException;
 public class Pokemon {
 
 	private String name;
+	private int num;
 	private String[] type = new String[2];
 	private String nature;
 	private int level;
@@ -18,6 +19,7 @@ public class Pokemon {
 	private int[] stats = new int[6];
 	private int[] currentStats;
 	private int natureVal = 1; //temp int, until implement nature
+	private int state; //1 is alive, 0 is fainted
 
 	private String[] strMoves;
 	private Move[] moves = new Move[4];
@@ -43,9 +45,11 @@ public class Pokemon {
 		String jsonName = name.toLowerCase();
 		type[0] = (String) ((JSONArray)((JSONObject) jsonObject.get(jsonName)).get("types")).get(0);
 		type[1] = (String) ((JSONArray)((JSONObject) jsonObject.get(jsonName)).get("types")).get(1);
-		System.out.println(type[0] + "   " + type[1]);
+		//System.out.println(type[0] + "   " + type[1]);
+		num = (int) (long) ((JSONObject) jsonObject.get(jsonName)).get("num");
 		nature = nat;
 		level = 100;
+		state = 1;
 
 		baseStats[0] = (int) (long) ((JSONObject)((JSONObject) jsonObject.get(jsonName)).get("baseStats")).get("hp");
 		baseStats[1] = (int) (long) ((JSONObject)((JSONObject) jsonObject.get(jsonName)).get("baseStats")).get("atk");
@@ -101,6 +105,7 @@ public class Pokemon {
 
 		calculateStats();
 		currentStats = stats;
+		state = 1;
 	}
 
 	public void calculateStats(){
@@ -217,7 +222,7 @@ public class Pokemon {
 
 	public void setCurrentHP(int currHP){
 
-		currentStats[0] = currHP;
+		currentStats[0] = Math.max(0, currHP); //prevents from getting lower than 0
 	}
 
 	public void setStrMoves(String[] inMoves){
@@ -238,6 +243,31 @@ public class Pokemon {
 
 	}
 
+	public String movesToString(){
+
+		String movesStr = "";
+		for(int i = 0; i < moves.length; i++){
+			movesStr = movesStr + " (" + i + ") " + moves[i].getName();
+		}
+
+		return movesStr;
+
+	}
+
+	public int getState(){
+		return state;
+	}
+
+	public void checkState(){
+
+		if(getCurrentHP() == 0){
+			System.out.println(name + " has fainted!");
+			state = 0;
+		}else{
+			state = 1;
+		}
+
+	}
 
 	public void statsToString(){
 
