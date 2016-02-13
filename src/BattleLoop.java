@@ -32,7 +32,7 @@ public class BattleLoop {
 		Pokemon pok1_1 = new Pokemon("Volcarona", "Modest", 72, 0, 0, 252, 0, 184);
 		Pokemon pok1_2 = new Pokemon("Dragonite", "Adamant", 4, 252, 0, 0, 0, 252);
 		Pokemon pok1_3 = new Pokemon("Chandelure", "Modest", 4, 0, 0, 252, 0, 252);
-		Pokemon pok1_4 = new Pokemon("Lucario", "Bold", 72, 252, 0, 0, 184, 0);
+		Pokemon pok1_4 = new Pokemon("Lucario", "Adamant", 72, 252, 0, 0, 184, 0);
 		Pokemon pok1_5 = new Pokemon("Starmie", "Modest", 4, 0, 0, 252, 0, 184);
 		Pokemon pok1_6 = new Pokemon("Scizor", "Jolly", 72, 252, 0, 0, 0, 184);
 
@@ -74,8 +74,8 @@ public class BattleLoop {
 		t2.addPokemon(pok2_5);
 		t2.addPokemon(pok2_6);
 
-//		pok1.statsToString();
-//		pok2.statsToString();
+		pok1_1.statsToString();
+		pok2_1.statsToString();
 //
 //		battleDamage(pok1,0,pok2);
 //		battleDamage(pok1,1,pok2);
@@ -352,7 +352,7 @@ public class BattleLoop {
 			//(int) cast because rounding occurs before multipliers, according to Pokemon Showdown calc
 		}
 		if(attack.getCategory().equals("Special")){
-			damage = (int) (((int)(((2 * p1.getLevel() + 10)/(double) 250) * ((double) p1.getCurrentSpAtk()/p2.getCurrentSpDef()) * attack.getBasePower() + 2)) * STAB * typeEff);
+			damage = (int) (((int)(((2 * p1.getLevel() + 10)/(double) 250) * ((double) p1.getCurrentSpA()/p2.getCurrentSpD()) * attack.getBasePower() + 2)) * STAB * typeEff);
 			System.out.println(attack.getName() + " does " + damage + " dmg to " + p2.getName() + " (type effectiveness implmented!)");
 
 		}

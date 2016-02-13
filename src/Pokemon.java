@@ -105,6 +105,8 @@ public class Pokemon {
 
 		calculateStats();
 		currentStats = stats;
+
+
 		state = 1;
 	}
 
@@ -113,117 +115,158 @@ public class Pokemon {
 		stats[0] = (int) (((2 * baseStats[0] + IVs[0] + ((double) EVs[0]/4)) * level)/100) + level + 10;
 
 		for(int i = 1; i < stats.length; i++){
-
 			stats[i] = (int) ((((2 * baseStats[i] + IVs[i] + ((double) EVs[i]/4)) * level)/100) + 5) * natureVal;
 		}
 
+		calculateNature();
 
 	}
 
-	public void calculate(){
+	public void calculateNature(){
+
+		try {
+			JSONParser parser = new JSONParser();
+			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader("data/natures.txt"));
+
+			String jsonNature = nature.toLowerCase();
+			String plus = (String) ((JSONObject) jsonObject.get(jsonNature)).get("plus");
+			String minus = (String) ((JSONObject) jsonObject.get(jsonNature)).get("minus");
+
+//			System.out.println(name + "   " + getAtk() + "   " + (int)(getAtk() * 1.1));
+//			System.out.println(name + "   " + getSpA() + "   " + (int)(getSpA() * 1.1));
+
+			if(plus.equals("atk")){setAtk((int)(getAtk() * 1.1));}
+			if(plus.equals("def")){setDef((int)(getDef() * 1.1));}
+			if(plus.equals("spa")){setSpA((int)(getSpA() * 1.1));}
+			if(plus.equals("spd")){setSpD((int)(getSpD() * 1.1));}
+			if(plus.equals("spe")){setSpe((int)(getSpe() * 1.1));}
+
+			if(minus.equals("atk")){setAtk((int)(getAtk() * 0.9));}
+			if(minus.equals("def")){setDef((int)(getDef() * 0.9));}
+			if(minus.equals("spa")){setSpA((int)(getSpA() * 0.9));}
+			if(minus.equals("spd")){setSpD((int)(getSpD() * 0.9));}
+			if(minus.equals("spe")){setSpe((int)(getSpe() * 0.9));}
 
 
+
+		} catch (IOException | ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public String getName(){
-
 		return name;
-
 	}
 
 	public String[] getType(){
-
 		return type;
-
 	}
 
 	public String getNature(){
-
 		return nature;
 	}
 
 	public int getLevel(){
-
 		return level;
-
 	}
 
 	public int getHP(){
-
 		return stats[0];
-
 	}
 
-	public int getAttack(){
-
+	public int getAtk(){
 		return stats[1];
-
 	}
 
-	public int getDefense(){
-
+	public int getDef(){
 		return stats[2];
-
 	}
 
-	public int getSpAttack(){
-
+	public int getSpA(){
 		return stats[3];
-
 	}
 
-	public int getSpDefense(){
-
+	public int getSpD(){
 		return stats[4];
-
 	}
 
-	public int getSpeed(){
-
+	public int getSpe(){
 		return stats[5];
+	}
 
+	public void getSpe(int inSpe){
+		stats[5] = inSpe;
+	}
+
+	public void setHP(int inHP){
+		stats[0] = inHP;
+	}
+
+	public void setAtk(int inAtk){
+		stats[1] = inAtk;
+	}
+
+	public void setDef(int inDef){
+		stats[2] = inDef;
+	}
+
+	public void setSpA(int inSpA){
+		stats[3] = inSpA;
+	}
+
+	public void setSpD(int inSpD){
+		stats[4] = inSpD;
+	}
+
+	public void setSpe(int inSpe){
+		stats[5] = inSpe;
 	}
 
 	public int getCurrentHP(){
-
 		return currentStats[0];
-
 	}
 
 	public int getCurrentAtk(){
-
 		return currentStats[1];
-
 	}
 
 	public int getCurrentDef(){
-
 		return currentStats[2];
-
 	}
 
-	public int getCurrentSpAtk(){
-
+	public int getCurrentSpA(){
 		return currentStats[3];
-
 	}
 
-	public int getCurrentSpDef(){
-
+	public int getCurrentSpD(){
 		return currentStats[4];
-
 	}
 
 	public int getCurrentSpe(){
-
 		return currentStats[5];
-
 	}
 
 	public void setCurrentHP(int currHP){
-
 		currentStats[0] = Math.max(0, currHP); //prevents from getting lower than 0
 	}
+
+	public void setCurrentAtk(int currAtk){
+		currentStats[1] = currAtk;
+	}
+	public void setCurrentDef(int currDef){
+		currentStats[1] = currDef;
+	}
+	public void setCurrentSpA(int currSpA){
+		currentStats[1] = currSpA;
+	}
+	public void setCurrentSpD(int currSpD){
+		currentStats[1] = currSpD;
+	}
+	public void setCurrentSpe(int currSpe){
+		currentStats[1] = currSpe;
+	}
+
 
 	public void setStrMoves(String[] inMoves){
 
