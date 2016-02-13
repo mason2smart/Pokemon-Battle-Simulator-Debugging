@@ -345,14 +345,15 @@ public class BattleLoop {
 		}
 
 		double typeEff = checkTypeEffectiveness(p2.getType(), attack.getType());
+		double rand = ((double) (new Random().nextInt(16) + 85))/100;
 
 		if(attack.getCategory().equals("Physical")){
-			damage = (int) (((int)(((2 * p1.getLevel() + 10)/(double) 250) * ((double) p1.getCurrentAtk()/p2.getCurrentDef()) * attack.getBasePower() + 2)) * STAB * typeEff);
+			damage = (int) (((int)(((2 * p1.getLevel() + 10)/(double) 250) * ((double) p1.getCurrentAtk()/p2.getCurrentDef()) * attack.getBasePower() + 2)) * STAB * typeEff * rand);
 			System.out.println(attack.getName() + " does " + damage + " dmg to " + p2.getName() + " (type effectiveness implmented!)");
 			//(int) cast because rounding occurs before multipliers, according to Pokemon Showdown calc
 		}
 		if(attack.getCategory().equals("Special")){
-			damage = (int) (((int)(((2 * p1.getLevel() + 10)/(double) 250) * ((double) p1.getCurrentSpA()/p2.getCurrentSpD()) * attack.getBasePower() + 2)) * STAB * typeEff);
+			damage = (int) (((int)(((2 * p1.getLevel() + 10)/(double) 250) * ((double) p1.getCurrentSpA()/p2.getCurrentSpD()) * attack.getBasePower() + 2)) * STAB * typeEff * rand);
 			System.out.println(attack.getName() + " does " + damage + " dmg to " + p2.getName() + " (type effectiveness implmented!)");
 
 		}
