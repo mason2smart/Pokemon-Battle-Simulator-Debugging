@@ -61,5 +61,15 @@ public class Team {
 		return isFainted;
 	}
 
+	public String toString(){
+
+		String str = "";
+
+		for(int i = 0; i < pokemonTeam.size(); i++){
+			str = str + " (" + i + ") " + pokemonTeam.get(i).getName() + " ";
+		}
+		return str;
+	}
+
 
 }
