@@ -263,7 +263,7 @@ public class BattleLoop {
 					currLine = reader.readLine();
 					moves[i] = currLine.substring(currLine.indexOf('-')+1).trim();
 				}
-
+				System.out.println(name + " " + nature + EVs[0] + EVs[1] + moves[0] + " " + moves[1] + " " + moves[2] + " " + moves[3]);
 				t1.addPokemon(new Pokemon(name, nature, EVs[0], EVs[1], EVs[2], EVs[3], EVs[4], EVs[5], moves));
 				System.out.println(t1.getPokemon(j).getName() + " " + t1.getPokemon(j).movesToString());
 				t1.getPokemon(j).statsToString();
