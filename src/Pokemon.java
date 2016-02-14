@@ -11,6 +11,7 @@ public class Pokemon {
 	private String name;
 	private int num;
 	private String[] type = new String[2];
+	private String ability;
 	private String nature;
 	private int level;
 	private int[] baseStats = new int[6];
@@ -72,6 +73,52 @@ public class Pokemon {
 
 		calculateStats();
 		currentStats = stats;
+	}
+
+	public Pokemon(String nam, String nat, int hpEV, int atkEV, int defEV, int spAEV, int spDEV, int speEV, String[] inMoves){
+
+		JSONParser parser = new JSONParser();
+		JSONObject jsonObject = null;
+		try {
+			jsonObject = (JSONObject) parser.parse(new FileReader("data/pokedex.txt"));
+		} catch (IOException | ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		name = nam;
+		String jsonName = name.toLowerCase();
+		type[0] = (String) ((JSONArray)((JSONObject) jsonObject.get(jsonName)).get("types")).get(0);
+		type[1] = (String) ((JSONArray)((JSONObject) jsonObject.get(jsonName)).get("types")).get(1);
+		//System.out.println(type[0] + "   " + type[1]);
+		num = (int) (long) ((JSONObject) jsonObject.get(jsonName)).get("num");
+		nature = nat;
+		level = 100;
+		state = 1;
+
+		baseStats[0] = (int) (long) ((JSONObject)((JSONObject) jsonObject.get(jsonName)).get("baseStats")).get("hp");
+		baseStats[1] = (int) (long) ((JSONObject)((JSONObject) jsonObject.get(jsonName)).get("baseStats")).get("atk");
+		baseStats[2] = (int) (long) ((JSONObject)((JSONObject) jsonObject.get(jsonName)).get("baseStats")).get("def");
+		baseStats[3] = (int) (long) ((JSONObject)((JSONObject) jsonObject.get(jsonName)).get("baseStats")).get("spa");
+		baseStats[4] = (int) (long) ((JSONObject)((JSONObject) jsonObject.get(jsonName)).get("baseStats")).get("spd");
+		baseStats[5] = (int) (long) ((JSONObject)((JSONObject) jsonObject.get(jsonName)).get("baseStats")).get("spe");
+
+		for(int i = 0; i < IVs.length; i++){
+			IVs[i] = 31;
+		}
+
+		EVs[0] = hpEV;
+		EVs[1] = atkEV;
+		EVs[2] = defEV;
+		EVs[3] = spAEV;
+		EVs[4] = spDEV;
+		EVs[5] = speEV;
+
+
+		calculateStats();
+		currentStats = stats;
+
+		setMoves(inMoves);
 	}
 
 	public Pokemon(String nam, String[] t, String nat, int lv, int hp, int atk, int def, int spA, int spD, int spe, int hpIV, int atkIV, int defIV, int spAIV, int spDIV, int speIV, int hpEV, int atkEV, int defEV, int spAEV, int spDEV, int speEV){

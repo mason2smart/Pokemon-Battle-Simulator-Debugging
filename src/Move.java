@@ -24,7 +24,7 @@ public class Move {
 
 			name = inName;
 			jsonName = name.toLowerCase();
-			jsonName = jsonName.replace(" ","").replace("-","");
+			jsonName = jsonName.replace("-","").replace("[","").replace("]","").replace(" ","");
 
 			type = (String) ((JSONObject) jsonObject.get(jsonName)).get("type");
 			category = (String) ((JSONObject) jsonObject.get(jsonName)).get("category");
