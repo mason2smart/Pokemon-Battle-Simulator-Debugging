@@ -26,70 +26,13 @@ public class BattleLoop {
 
 		System.out.println("Welcome to the 2016 Pokemon Battle Simulator!!!");
 
-//		Pokemon pok1 = new Pokemon("Volcarona", new String[]{"Bug","Fire"}, "Modest", 100, 85, 60, 65, 135, 105, 100, 31, 31, 31, 31, 31, 31, 72, 0, 0, 252, 0, 184);
-//		Pokemon pok2 = new Pokemon("Garchomp", new String[]{"Dragon","Ground"}, "Adamant", 100, 108, 130, 95, 80, 85, 102, 31, 31, 31, 31, 31, 31, 4, 252, 0, 0, 0, 252);
-
-//		Pokemon pok1_1 = new Pokemon("Volcarona", "Modest", 72, 0, 0, 252, 0, 184);
-//		Pokemon pok1_2 = new Pokemon("Dragonite", "Adamant", 4, 252, 0, 0, 0, 252);
-//		Pokemon pok1_3 = new Pokemon("Chandelure", "Modest", 4, 0, 0, 252, 0, 252);
-//		Pokemon pok1_4 = new Pokemon("Lucario", "Adamant", 72, 252, 0, 0, 184, 0);
-//		Pokemon pok1_5 = new Pokemon("Starmie", "Modest", 4, 0, 0, 252, 0, 184);
-//		Pokemon pok1_6 = new Pokemon("Scizor", "Jolly", 72, 252, 0, 0, 0, 184);
-//
-//
-		Pokemon pok2_1 = new Pokemon("Garchomp", "Adamant", 4, 252, 0, 0, 0, 252);
-		Pokemon pok2_2 = new Pokemon("Salamence", "Adamant", 4, 252, 0, 0, 0, 252);
-		Pokemon pok2_3 = new Pokemon("Dragonite", "Adamant", 4, 252, 0, 0, 0, 252);
-		Pokemon pok2_4 = new Pokemon("Gyarados", "Adamant", 4, 252, 0, 0, 0, 252);
-		Pokemon pok2_5 = new Pokemon("Hydreigon", "Adamant", 4, 252, 0, 0, 0, 252);
-		Pokemon pok2_6 = new Pokemon("Rayquaza", "Adamant", 4, 252, 0, 0, 0, 252);
-//
-//		pok1_1.setMoves(new String[]{"Fire Blast","Bug Buzz","Giga Drain","Hyper Beam"});
-//		pok1_2.setMoves(new String[]{"Outrage","Earthquake","Fire Punch","Brick Break"});
-//		pok1_3.setMoves(new String[]{"Overheat","Shadow Ball","Hidden Power Ice","Energy Ball"});
-//		pok1_4.setMoves(new String[]{"Drain Punch","Mach Punch","Ice Punch","ThunderPunch"});
-//		pok1_5.setMoves(new String[]{"Hydro Cannon","Ice Beam","Thunder","Hyper Beam"});
-//		pok1_6.setMoves(new String[]{"Iron Head","Bug Bite","Bullet Punch","Superpower"});
-//
-		pok2_1.setMoves(new String[]{"Outrage","Earthquake","Stone Edge","Giga Impact"});
-		pok2_2.setMoves(new String[]{"Outrage","Earthquake","Stone Edge","Fire Fang"});
-		pok2_3.setMoves(new String[]{"Outrage","Extremespeed","Fire Punch","Aeroblast"});
-		pok2_4.setMoves(new String[]{"Waterfall","Sky Attack","Thrash","Giga Impact"});
-		pok2_5.setMoves(new String[]{"Draco Meteor","Flamethrower","Earth Power","Hyper Beam"});
-		pok2_6.setMoves(new String[]{"Outrage","Earthquake","Stone Edge","V-Create"});
-//
 		t1 = new Team();
-//		t1.addPokemon(pok1_1);
-//		t1.addPokemon(pok1_2);
-//		t1.addPokemon(pok1_3);
-//		t1.addPokemon(pok1_4);
-//		t1.addPokemon(pok1_5);
-//		t1.addPokemon(pok1_6);
-//
 		t2 = new Team();
-		t2.addPokemon(pok2_1);
-		t2.addPokemon(pok2_2);
-		t2.addPokemon(pok2_3);
-		t2.addPokemon(pok2_4);
-		t2.addPokemon(pok2_5);
-		t2.addPokemon(pok2_6);
-//
-//		pok1_1.statsToString();
-//		pok2_1.statsToString();
-//
-//		battleDamage(pok1,0,pok2);
-//		battleDamage(pok1,1,pok2);
-//		battleDamage(pok1,2,pok2);
-//		battleDamage(pok1,3,pok2);
-//
-//		battleDamage(pok2,0,pok1);
-//		battleDamage(pok2,1,pok1);
-//		battleDamage(pok2,2,pok1);
-//		battleDamage(pok2,3,pok1);
+
+		parsePokemonFile(t1,"data/team.txt");
+		parsePokemonFile(t2,"data/opponentteam.txt");
 
 		isBattle = true;
-
-		parsePokemonFile();
 	}
 
 	public void battle(){
@@ -203,10 +146,10 @@ public class BattleLoop {
 
 	}
 
-	public void parsePokemonFile(){
+	public void parsePokemonFile(Team t, String filePath){
 
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader("data/team.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader(filePath));
 			String currLine = "";
 			//currLine = reader.readLine();
 			//while((currLine = reader.readLine()) != null){
@@ -263,10 +206,10 @@ public class BattleLoop {
 					currLine = reader.readLine();
 					moves[i] = currLine.substring(currLine.indexOf('-')+1).trim();
 				}
-				System.out.println(name + " " + nature + EVs[0] + EVs[1] + moves[0] + " " + moves[1] + " " + moves[2] + " " + moves[3]);
-				t1.addPokemon(new Pokemon(name, nature, EVs[0], EVs[1], EVs[2], EVs[3], EVs[4], EVs[5], moves));
-				System.out.println(t1.getPokemon(j).getName() + " " + t1.getPokemon(j).movesToString());
-				t1.getPokemon(j).statsToString();
+				//System.out.println(name + " " + nature + EVs[0] + EVs[1] + moves[0] + " " + moves[1] + " " + moves[2] + " " + moves[3]);
+				t.addPokemon(new Pokemon(name, nature, EVs[0], EVs[1], EVs[2], EVs[3], EVs[4], EVs[5], moves));
+				//System.out.println(t1.getPokemon(j).getName() + " " + t.getPokemon(j).movesToString());
+				t.getPokemon(j).statsToString();
 
 				currLine = reader.readLine();
 
@@ -453,7 +396,7 @@ public class BattleLoop {
 
 		return damage;
 
-		//STAB, type effectiiveness, implemented. Critical, Random, and held items, abilities, and weather not included.
+		//STAB, type effectiveness, implemented. Critical, Random, and held items, abilities, and weather not included.
 	}
 
 	public double checkTypeEffectiveness(String[] pokeType, String moveType){
@@ -466,6 +409,7 @@ public class BattleLoop {
 			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader("data/typechart.txt"));
 
 			for(String type : pokeType){
+
 				int val = (int) (long) ((JSONObject)((JSONObject) jsonObject.get(type)).get("damageTaken")).get(moveType);
 
 				if(val == 0){

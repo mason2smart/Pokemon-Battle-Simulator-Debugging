@@ -10,7 +10,7 @@ public class Pokemon {
 
 	private String name;
 	private int num;
-	private String[] type = new String[2];
+	private String[] type;
 	private String ability;
 	private String nature;
 	private int level;
@@ -44,8 +44,13 @@ public class Pokemon {
 
 		name = nam;
 		String jsonName = name.toLowerCase();
-		type[0] = (String) ((JSONArray)((JSONObject) jsonObject.get(jsonName)).get("types")).get(0);
-		type[1] = (String) ((JSONArray)((JSONObject) jsonObject.get(jsonName)).get("types")).get(1);
+
+		int numOfTypes = ((JSONArray)((JSONObject) jsonObject.get(jsonName)).get("types")).size();
+		type = new String[numOfTypes];
+
+		for(int i = 0; i < numOfTypes; i++){
+			type[i] = (String) ((JSONArray)((JSONObject) jsonObject.get(jsonName)).get("types")).get(i);
+		}
 		//System.out.println(type[0] + "   " + type[1]);
 		num = (int) (long) ((JSONObject) jsonObject.get(jsonName)).get("num");
 		nature = nat;
@@ -88,9 +93,9 @@ public class Pokemon {
 
 		name = nam;
 		String jsonName = name.toLowerCase().replace("-","");
-		System.out.println(jsonName);
 
 		int numOfTypes = ((JSONArray)((JSONObject) jsonObject.get(jsonName)).get("types")).size();
+		type = new String[numOfTypes];
 
 		for(int i = 0; i < numOfTypes; i++){
 			type[i] = (String) ((JSONArray)((JSONObject) jsonObject.get(jsonName)).get("types")).get(i);
