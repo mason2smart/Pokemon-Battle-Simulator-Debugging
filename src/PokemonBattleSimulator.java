@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class PokemonBattleSimulator {
@@ -49,7 +50,13 @@ public class PokemonBattleSimulator {
 			if(in == 1){
 				ServerBattle sb = new ServerBattle();
 				sb.loadBattle();
-				sb.battle();
+
+				try {
+					sb.battle();
+				} catch (NumberFormatException | IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 
 			if(in == 2){

@@ -47,11 +47,13 @@ public class ServerBattle {
 				s1 = servSocket.accept();
 				reader1 = new BufferedReader(new InputStreamReader(s1.getInputStream()));
 				writer1 = new PrintWriter(s1.getOutputStream());
+				writer1.flush();
 				System.out.println("Connection established with Player 1!");
 
 				s2 = servSocket.accept(); //again, can be refactored, perhaps as a while loop
 				reader2 = new BufferedReader(new InputStreamReader(s2.getInputStream()));
 				writer2 = new PrintWriter(s2.getOutputStream());
+				writer2.flush();
 				System.out.println("Connection established with Player 2!");
 
 				System.out.println("Is this connection ok? (Type Y/N)");
@@ -89,51 +91,67 @@ public class ServerBattle {
 		ServerUtilities.writeToFileFromReader(reader2, tempWriter2);
 
 
-
 		parsePokemonFile(t1,"data/tmp/tempopponentteam1.txt");
 		parsePokemonFile(t2,"data/tmp/tempopponentteam2.txt");
 
 		isBattle = true;
 	}
 
-	public void battle(){
+	public void battle() throws NumberFormatException, IOException{
 
 		Pokemon activePok1 = t1.getPokemon(0); //Grab the first Pokemon in each team
 		Pokemon activePok2 = t2.getPokemon(0);
 
-		System.out.println("Foe sent out " + activePok2.getName() + "!");
-		System.out.println("Go, " + activePok1.getName() + "!");
+		writer1.println("Foe sent out " + activePok2.getName() + "!");
+		writer1.println("Go, " + activePok1.getName() + "!");
+		writer1.flush();
+
+		writer2.println("Foe sent out " + activePok1.getName() + "!");
+		writer2.println("Go, " + activePok2.getName() + "!");
+		writer2.flush();
 
 		while(isBattle){
 
-			System.out.println("What will " + activePok1.getName() + " do?");
-			System.out.println("Moves: " + activePok1.movesToString());
-			System.out.println("Enter move number | Press 4 to Switch");
-			Scanner sc = new Scanner(System.in);
-			int moveNum1 = Integer.valueOf(sc.nextLine()); //Get move decision/Decision to switch
-			int moveNum2 = new Random().nextInt(4);
+			writer1.println("What will " + activePok1.getName() + " do?");
+			writer1.println("Moves: " + activePok1.movesToString());
+			writer1.println("Enter move number | Press 4 to Switch");
+			writer1.flush();
+
+			writer2.println("What will " + activePok1.getName() + " do?");
+			writer2.println("Moves: " + activePok1.movesToString());
+			writer2.println("Enter move number | Press 4 to Switch");
+			writer2.flush();
+
+			int moveNum1 = Integer.valueOf(reader1.readLine()); //Get move decision/Decision to switch
+			int moveNum2 = Integer.valueOf(reader2.readLine());
 			boolean playerFirst = false; //controls for speed tie, without affecting Pokemon speeds
 			boolean isAttacking = true; //Assume we are attacking, unless we're switching
 
 			if(moveNum1 == 4){ //if switching out
 				isAttacking = false; //Not attacking
-				System.out.println("Select a new Pokemon");
-				System.out.println(t1.toString());
-				int pokeNum = Integer.valueOf(sc.nextLine()); //Grab Pokemon
+				writer1.println("Select a new Pokemon");
+				writer1.println(t1.toString());
+				writer1.flush();
+				int pokeNum = Integer.valueOf(reader1.readLine()); //Grab Pokemon
 				boolean isSamePokemon = t1.getPokemon(pokeNum).equals(activePok1); //check if same Pokemon
 				while(t1.getPokemon(pokeNum).getState() == 0 || pokeNum > 5 || isSamePokemon){ //If fainted or same
 					if(isSamePokemon){ //If it's the same
-						System.out.println(t1.getPokemon(pokeNum).getName() + " is already in battle!");
-						pokeNum = Integer.valueOf(sc.nextLine());
+						writer1.println(t1.getPokemon(pokeNum).getName() + " is already in battle!");
+						writer1.flush();
+						pokeNum = Integer.valueOf(reader1.readLine());
 						isSamePokemon = t1.getPokemon(pokeNum).equals(activePok1); //check again for next while cycle
 					}else{ //else if it's fainted,
-						System.out.println(t1.getPokemon(pokeNum).getName() + " is unable to battle!");
-						pokeNum = Integer.valueOf(sc.nextLine()); //grab new Pokemon
+						writer1.println(t1.getPokemon(pokeNum).getName() + " is unable to battle!");
+						writer1.flush();
+						pokeNum = Integer.valueOf(reader1.readLine()); //grab new Pokemon
 					}
 
 				}
 				activePok1 = t1.getPokemon(pokeNum); //Finally, switch in valid Pokemon
-				System.out.println("Go, " + activePok1.getName() + "!");
+				writer1.println("Go, " + activePok1.getName() + "!");
+				writer1.flush();
+				writer2.println("Foe sent out " + activePok1.getName() + "!");
+				writer2.flush();
 				activePok1.setCurrentHP(activePok1.getCurrentHP() - battleDamage(activePok2,moveNum2,activePok1)); //Get hit by opponent
 				activePok1.checkState(); //Check if fainted
 			}
@@ -168,38 +186,59 @@ public class ServerBattle {
 
 
 			if(activePok1.getState() == 0 && !t1.isFaintedTeam()){ //if active Pokemon is knocked out, and Pokemon left
-				System.out.println("Select a new Pokemon, by number"); //Can switch to new Poke!
-				System.out.println(t1.toString());
-				int pokeNum = Integer.valueOf(sc.nextLine());
+				writer1.println("Select a new Pokemon, by number"); //Can switch to new Poke!
+				writer1.println(t1.toString());
+				writer1.flush();
+				writer2.println("Foe is thinking over his next Pokemon...");
+				writer2.flush();
+				int pokeNum = Integer.valueOf(reader1.readLine());
 				while(t1.getPokemon(pokeNum).getState() == 0 || pokeNum > 5){ //While not fainted or over the boundaries,
-					System.out.println(t1.getPokemon(pokeNum).getName() + " is unable to battle!");
-					pokeNum = Integer.valueOf(sc.nextLine());
+					writer1.println(t1.getPokemon(pokeNum).getName() + " is unable to battle!");
+					writer1.flush();
+					pokeNum = Integer.valueOf(reader1.readLine());
 				}
 				activePok1 = t1.getPokemon(pokeNum); //Switch Pokemon in.
-				System.out.println("Go, " + activePok1.getName() + "!");
+				writer1.println("Go, " + activePok1.getName() + "!");
+				writer1.flush();
+				writer2.println("Foe sent out " + activePok1.getName() + "!");
+				writer2.flush();
 			}
 
 			if(activePok2.getState() == 0 && !t2.isFaintedTeam()){ //Same for above, simply inversed for opponent
-				System.out.println("Foe is thinking over his next Pokemon...");
-				int pokeNum = new Random().nextInt(6);
+				writer2.println("Select a new Pokemon, by number"); //Can switch to new Poke!
+				writer2.println(t1.toString());
+				writer2.flush();
+				writer1.println("Foe is thinking over his next Pokemon...");
+				writer1.flush();
+				int pokeNum = Integer.valueOf(reader2.readLine());
 				while(t2.getPokemon(pokeNum).getState() == 0){
-					System.out.println(t2.getPokemon(pokeNum).getName() + " is unable to battle!");
-					pokeNum = new Random().nextInt(6);
+					writer2.println(t2.getPokemon(pokeNum).getName() + " is unable to battle!");
+					writer2.flush();
+					pokeNum = Integer.valueOf(reader2.readLine());
 				}
 				activePok2 = t2.getPokemon(pokeNum);
-				System.out.println("Foe sent out " + activePok2.getName() + "!");
+				writer2.println("Go, " + activePok2.getName() + "!");
+				writer2.flush();
+				writer1.println("Foe sent out " + activePok2.getName() + "!");
+				writer1.flush();
 			}
 
 
 
 			if(t1.isFaintedTeam()){ //If all team fainted,
 				isBattle = false;
-				System.out.println("Player whited out!"); //RIP in pepperoni
+				writer1.println("Player whited out!"); //RIP in pepperoni
+				writer1.flush();
+				writer2.println("Player defeated Trainer!");
+				writer2.flush();
 			}
 
 			if(t2.isFaintedTeam()){
 				isBattle = false;
-				System.out.println("Player defeated Trainer!"); //gg no re
+				writer2.println("Player whited out!"); //RIP in pepperoni
+				writer2.flush();
+				writer1.println("Player defeated Trainer!"); //gg no re
+				writer1.flush();
 			}
 
 		}

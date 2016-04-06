@@ -16,6 +16,7 @@ public class ServerUtilities {
 		try {
 			while((currLine = reader.readLine()) != null){
 				fileWriter.println(currLine);
+				fileWriter.flush();
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -31,6 +32,7 @@ public class ServerUtilities {
 		try {
 			while((currLine = fileReader.readLine()) != null){
 				writer.println(currLine);
+				writer.flush();
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
