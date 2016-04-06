@@ -1,9 +1,10 @@
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.HashMap;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -13,16 +14,52 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-
-public class BattleLoop {
+public class ServerBattle {
 
 
 	boolean isBattle;
 	Team t1;
 	Team t2;
 
+	Socket s1; //perhaps Sockets should instance variables of a Player object?
+	Socket s2;
 
-	public void startBattle(){
+	BufferedReader reader1; //similarly... ^^^
+	BufferedReader reader2;
+
+	PrintWriter writer1;
+	PrintWriter writer2;
+
+	public void checkConnections(){
+
+		try {
+			boolean isConnectionGood = false;
+
+			while(!isConnectionGood){
+
+				ServerSocket servSocket = new ServerSocket(5000);
+				s1 = servSocket.accept();
+				reader1 = new BufferedReader(new InputStreamReader(s1.getInputStream()));
+				writer1 = new PrintWriter(s1.getOutputStream());
+				System.out.println("Connection established with Player 1!");
+
+				s2 = servSocket.accept(); //again, can be refactored, perhaps as a while loop
+				reader2 = new BufferedReader(new InputStreamReader(s2.getInputStream()));
+				writer2 = new PrintWriter(s2.getOutputStream());
+				System.out.println("Connection established with Player 2!");
+
+				System.out.println("");
+
+			}
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	public void loadBattle(){
 
 		//System.out.println("Welcome to the 2016 Pokemon Battle Simulator!!!");
 

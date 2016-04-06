@@ -12,6 +12,8 @@ public class Move {
 	private String category; //physical or special
 	private int basePower;
 	private int pp;
+	private int accuracyInt;
+	private boolean accuracyBool;
 	private String desc;
 
 	private String jsonName;

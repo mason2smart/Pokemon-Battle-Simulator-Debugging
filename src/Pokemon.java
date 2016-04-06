@@ -324,6 +324,10 @@ public class Pokemon {
 		currentStats[1] = currSpe;
 	}
 
+	public void boostAtk(int stage){
+		setCurrentAtk(getCurrentAtk());
+	}
+
 
 	public void setStrMoves(String[] inMoves){
 
