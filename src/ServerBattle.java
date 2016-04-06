@@ -87,12 +87,14 @@ public class ServerBattle {
 			e1.printStackTrace();
 		}
 
-		ServerUtilities.writeToFileFromReader(reader1, tempWriter1);
-		ServerUtilities.writeToFileFromReader(reader2, tempWriter2);
+		//ServerUtilities.writeToFileFromReader(reader1, tempWriter1);
+		//ServerUtilities.writeToFileFromReader(reader2, tempWriter2);
 
+		parsePokemonFile(t1,"data/team.txt");
+		parsePokemonFile(t2,"data/opponentteam.txt");
 
-		parsePokemonFile(t1,"data/tmp/tempopponentteam1.txt");
-		parsePokemonFile(t2,"data/tmp/tempopponentteam2.txt");
+//		parsePokemonFile(t1,"data/tmp/tempopponentteam1.txt");
+//		parsePokemonFile(t2,"data/tmp/tempopponentteam2.txt");
 
 		isBattle = true;
 	}
@@ -117,8 +119,8 @@ public class ServerBattle {
 			writer1.println("Enter move number | Press 4 to Switch");
 			writer1.flush();
 
-			writer2.println("What will " + activePok1.getName() + " do?");
-			writer2.println("Moves: " + activePok1.movesToString());
+			writer2.println("What will " + activePok2.getName() + " do?");
+			writer2.println("Moves: " + activePok2.movesToString());
 			writer2.println("Enter move number | Press 4 to Switch");
 			writer2.flush();
 
@@ -156,7 +158,37 @@ public class ServerBattle {
 				activePok1.checkState(); //Check if fainted
 			}
 
-			if(isAttacking){ //If we are attacking,
+			if(moveNum2 == 4){ //if switching out
+				isAttacking = false; //Not attacking - BUT DIFF FOR P2????
+				writer2.println("Select a new Pokemon");
+				writer2.println(t2.toString());
+				writer2.flush();
+				int pokeNum = Integer.valueOf(reader2.readLine()); //Grab Pokemon
+				boolean isSamePokemon = t2.getPokemon(pokeNum).equals(activePok2); //check if same Pokemon
+				while(t2.getPokemon(pokeNum).getState() == 0 || pokeNum > 5 || isSamePokemon){ //If fainted or same
+					if(isSamePokemon){ //If it's the same
+						writer2.println(t2.getPokemon(pokeNum).getName() + " is already in battle!");
+						writer2.flush();
+						pokeNum = Integer.valueOf(reader2.readLine());
+						isSamePokemon = t2.getPokemon(pokeNum).equals(activePok1); //check again for next while cycle
+					}else{ //else if it's fainted,
+						writer2.println(t2.getPokemon(pokeNum).getName() + " is unable to battle!");
+						writer2.flush();
+						pokeNum = Integer.valueOf(reader2.readLine()); //grab new Pokemon
+					}
+
+				}
+				activePok1 = t2.getPokemon(pokeNum); //Finally, switch in valid Pokemon
+				writer2.println("Go, " + activePok1.getName() + "!");
+				writer2.flush();
+				writer1.println("Foe sent out " + activePok1.getName() + "!");
+				writer1.flush();
+				activePok1.setCurrentHP(activePok1.getCurrentHP() - battleDamage(activePok2,moveNum2,activePok1)); //Get hit by opponent
+				activePok1.checkState(); //Check if fainted
+			}
+
+
+			if(isAttacking){ //If we are attacking,   -- NOTE; FOR P2, this means ONLY DMG CALC will occur is P1is Attacking
 			if(activePok1.getCurrentSpe() == activePok2.getCurrentSpe()){ //If speed tie,
 				if(new Random().nextInt(2) == 0){ //Random decide who goes first
 					playerFirst = true;
@@ -469,29 +501,48 @@ public class ServerBattle {
 
 		if(attack.getCategory().equals("Physical")){
 			damage = (int) (((int)(((2 * p1.getLevel() + 10)/(double) 250) * ((double) p1.getCurrentAtk()/p2.getCurrentDef()) * attack.getBasePower() + 2)) * STAB * typeEff * rand);
-			System.out.println(attack.getName() + " does " + damage + " dmg to " + p2.getName() + " (type effectiveness implmented!)");
+			writer1.println(attack.getName() + " does " + damage + " dmg to " + p2.getName() + " (type effectiveness implmented!)");
+			writer1.flush();
+			writer2.println(attack.getName() + " does " + damage + " dmg to " + p2.getName() + " (type effectiveness implmented!)");
+			writer2.flush();
+
 			//(int) cast because rounding occurs before multipliers, according to Pokemon Showdown calc
 		}
 		if(attack.getCategory().equals("Special")){
 			damage = (int) (((int)(((2 * p1.getLevel() + 10)/(double) 250) * ((double) p1.getCurrentSpA()/p2.getCurrentSpD()) * attack.getBasePower() + 2)) * STAB * typeEff * rand);
-			System.out.println(attack.getName() + " does " + damage + " dmg to " + p2.getName() + " (type effectiveness implmented!)");
+			writer1.println(attack.getName() + " does " + damage + " dmg to " + p2.getName() + " (type effectiveness implmented!)");
+			writer1.flush();
+			writer2.println(attack.getName() + " does " + damage + " dmg to " + p2.getName() + " (type effectiveness implmented!)");
+			writer2.flush();
 
 		}
 
 		if(typeEff == 0){
-			System.out.println("It doesn't affect " + p2.getName() + "...");
+			writer1.println("It doesn't affect " + p2.getName() + "...");
+			writer1.flush();
+			writer2.println("It doesn't affect " + p2.getName() + "...");
+			writer2.flush();
 		}
 		if(typeEff == 0.5){
-			System.out.println("It's not very effective...");
+			writer1.println("It's not very effective...");
+			writer1.flush();
+			writer2.println("It's not very effective...");
+			writer2.flush();
 		}
 		if(typeEff == 1){
 
 		}
 		if(typeEff == 2){
-			System.out.println("It's super effective!");
+			writer1.println("It's super effective!");
+			writer1.flush();
+			writer2.println("It's super effective!");
+			writer2.flush();
 		}
 		if(typeEff == 4){
-			System.out.println("It's ultra effective!");
+			writer1.println("It's ultra effective!");
+			writer1.flush();
+			writer2.println("It's ultra effective!");
+			writer2.flush();
 		}
 
 		return damage;

@@ -21,7 +21,7 @@ public class ClientBattle {
 
 			BufferedReader reader = new BufferedReader(new FileReader("data/team.txt"));
 
-			ServerUtilities.writeToReaderFromFile(reader, writer);
+			//ServerUtilities.writeToReaderFromFile(reader, writer);
 
 			ClientReadMessages crm = new ClientReadMessages(s);
 			Thread t = new Thread(crm);
