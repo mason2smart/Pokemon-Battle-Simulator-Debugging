@@ -1,5 +1,8 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -21,6 +24,8 @@ public class ServerBattle {
 	Team t1;
 	Team t2;
 
+	Scanner sc = new Scanner(System.in);
+
 	Socket s1; //perhaps Sockets should instance variables of a Player object?
 	Socket s2;
 
@@ -35,9 +40,10 @@ public class ServerBattle {
 		try {
 			boolean isConnectionGood = false;
 
+			ServerSocket servSocket = new ServerSocket(5000);
+
 			while(!isConnectionGood){
 
-				ServerSocket servSocket = new ServerSocket(5000);
 				s1 = servSocket.accept();
 				reader1 = new BufferedReader(new InputStreamReader(s1.getInputStream()));
 				writer1 = new PrintWriter(s1.getOutputStream());
@@ -48,8 +54,11 @@ public class ServerBattle {
 				writer2 = new PrintWriter(s2.getOutputStream());
 				System.out.println("Connection established with Player 2!");
 
-				System.out.println("");
-
+				System.out.println("Is this connection ok? (Type Y/N)");
+				String in = sc.nextLine(); //too lazy to add sanitization of input here, rip if you type wrong
+				if(in.equals("Y") || in.equals("y")){
+					isConnectionGood = true;
+				} //inherently, if it's not Y, it just cycles again
 			}
 
 		} catch (IOException e) {
@@ -66,8 +75,23 @@ public class ServerBattle {
 		t1 = new Team();
 		t2 = new Team();
 
-		parsePokemonFile(t1,"data/team.txt");
-		parsePokemonFile(t2,"data/opponentteam.txt");
+		PrintWriter tempWriter1 = null;
+		PrintWriter tempWriter2 = null;
+		try {
+			tempWriter1 = new PrintWriter("data/tmp/tempopponentteam1.txt"); // initializing writer
+			tempWriter2 = new PrintWriter("data/tmp/tempopponentteam2.txt"); // initializing writer
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		ServerUtilities.writeToFileFromReader(reader1, tempWriter1);
+		ServerUtilities.writeToFileFromReader(reader2, tempWriter2);
+
+
+
+		parsePokemonFile(t1,"data/tmp/tempopponentteam1.txt");
+		parsePokemonFile(t2,"data/tmp/tempopponentteam2.txt");
 
 		isBattle = true;
 	}
