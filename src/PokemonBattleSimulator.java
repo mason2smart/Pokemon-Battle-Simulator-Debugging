@@ -49,6 +49,7 @@ public class PokemonBattleSimulator {
 
 			if(in == 1){
 				ServerBattle sb = new ServerBattle();
+				sb.checkConnections();
 				sb.loadBattle();
 
 				try {
@@ -60,6 +61,10 @@ public class PokemonBattleSimulator {
 			}
 
 			if(in == 2){
+
+				ClientBattle cb = new ClientBattle();
+				cb.makeConnection();
+				cb.writeToServer();
 
 			}
 

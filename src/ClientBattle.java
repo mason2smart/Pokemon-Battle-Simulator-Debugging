@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -17,6 +18,10 @@ public class ClientBattle {
 			s = new Socket("127.0.0.1", 5000);
 			writer = new PrintWriter(s.getOutputStream());
 			sc = new Scanner(System.in);
+
+			BufferedReader reader = new BufferedReader(new FileReader("data/team.txt"));
+
+			ServerUtilities.writeToReaderFromFile(reader, writer);
 
 			ClientReadMessages crm = new ClientReadMessages(s);
 			Thread t = new Thread(crm);
