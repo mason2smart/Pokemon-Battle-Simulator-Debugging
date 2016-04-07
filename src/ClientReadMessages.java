@@ -24,17 +24,17 @@ public class ClientReadMessages implements Runnable {
 
 		boolean isFinished = false;
 		String servIn;
+		//!isFinished
+		try {
+			while((servIn = reader.readLine()) != null){
 
-		while(!isFinished){
-
-			try {
-				servIn = reader.readLine();
+				//servIn = reader.readLine();
 				System.out.println(servIn);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 	}

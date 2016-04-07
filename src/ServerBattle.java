@@ -127,10 +127,11 @@ public class ServerBattle {
 			int moveNum1 = Integer.valueOf(reader1.readLine()); //Get move decision/Decision to switch
 			int moveNum2 = Integer.valueOf(reader2.readLine());
 			boolean playerFirst = false; //controls for speed tie, without affecting Pokemon speeds
-			boolean isAttacking = true; //Assume we are attacking, unless we're switching
+			boolean isAttacking1 = true; //Assume we are attacking, unless we're switching
+			boolean isAttacking2 = true;
 
 			if(moveNum1 == 4){ //if switching out
-				isAttacking = false; //Not attacking
+				isAttacking1 = false; //Not attacking
 				writer1.println("Select a new Pokemon");
 				writer1.println(t1.toString());
 				writer1.flush();
@@ -154,12 +155,12 @@ public class ServerBattle {
 				writer1.flush();
 				writer2.println("Foe sent out " + activePok1.getName() + "!");
 				writer2.flush();
-				activePok1.setCurrentHP(activePok1.getCurrentHP() - battleDamage(activePok2,moveNum2,activePok1)); //Get hit by opponent
-				activePok1.checkState(); //Check if fainted
+//				activePok1.setCurrentHP(activePok1.getCurrentHP() - battleDamage(activePok2,moveNum2,activePok1)); //Get hit by opponent
+//				activePok1.checkState(); //Check if fainted
 			}
 
 			if(moveNum2 == 4){ //if switching out
-				isAttacking = false; //Not attacking - BUT DIFF FOR P2????
+				isAttacking2 = false; //Not attacking - BUT DIFF FOR P2???? - Yup, just edited
 				writer2.println("Select a new Pokemon");
 				writer2.println(t2.toString());
 				writer2.flush();
@@ -170,7 +171,7 @@ public class ServerBattle {
 						writer2.println(t2.getPokemon(pokeNum).getName() + " is already in battle!");
 						writer2.flush();
 						pokeNum = Integer.valueOf(reader2.readLine());
-						isSamePokemon = t2.getPokemon(pokeNum).equals(activePok1); //check again for next while cycle
+						isSamePokemon = t2.getPokemon(pokeNum).equals(activePok2); //check again for next while cycle
 					}else{ //else if it's fainted,
 						writer2.println(t2.getPokemon(pokeNum).getName() + " is unable to battle!");
 						writer2.flush();
@@ -178,42 +179,48 @@ public class ServerBattle {
 					}
 
 				}
-				activePok1 = t2.getPokemon(pokeNum); //Finally, switch in valid Pokemon
-				writer2.println("Go, " + activePok1.getName() + "!");
+				activePok2 = t2.getPokemon(pokeNum); //Finally, switch in valid Pokemon
+				writer2.println("Go, " + activePok2.getName() + "!");
 				writer2.flush();
-				writer1.println("Foe sent out " + activePok1.getName() + "!");
+				writer1.println("Foe sent out " + activePok2.getName() + "!");
 				writer1.flush();
-				activePok1.setCurrentHP(activePok1.getCurrentHP() - battleDamage(activePok2,moveNum2,activePok1)); //Get hit by opponent
-				activePok1.checkState(); //Check if fainted
+//				activePok1.setCurrentHP(activePok1.getCurrentHP() - battleDamage(activePok2,moveNum2,activePok1)); //Get hit by opponent
+//				activePok1.checkState(); //Check if fainted
 			}
 
+			//NOTE::: THIS METHOD NEEDS EDITING. THE FASTER POKEMON SHOULD SWITCH OUT FIRST, NEEDS TO CONSIDER CASES LIKE BELOW
 
-			if(isAttacking){ //If we are attacking,   -- NOTE; FOR P2, this means ONLY DMG CALC will occur is P1is Attacking
-			if(activePok1.getCurrentSpe() == activePok2.getCurrentSpe()){ //If speed tie,
-				if(new Random().nextInt(2) == 0){ //Random decide who goes first
-					playerFirst = true;
-				}else{
 
+			if(isAttacking1 || isAttacking2){ //If we are attacking,   -- NOTE; FOR P2, this means ONLY DMG CALC will occur is P1is Attacking
+				if(activePok1.getCurrentSpe() == activePok2.getCurrentSpe()){ //If speed tie,
+					if(new Random().nextInt(2) == 0){ //Random decide who goes first
+						playerFirst = true;
+					}else{
+
+					}
 				}
-			}
 
-			if(activePok1.getCurrentSpe() > activePok2.getCurrentSpe() || playerFirst == true){ //If Pokemon1 is faster
+				if(activePok1.getCurrentSpe() > activePok2.getCurrentSpe() || playerFirst == true){ //If Pokemon1 is faster
 
-				activePok2.setCurrentHP(activePok2.getCurrentHP() - battleDamage(activePok1,moveNum1,activePok2)); //P1 attacks!
-				activePok2.checkState(); //Check if fainted, or still active
-				if(activePok2.getState() == 1){ //if still active
-					activePok1.setCurrentHP(activePok1.getCurrentHP() - battleDamage(activePok2,moveNum2,activePok1)); //P2 attacks!
-					activePok1.checkState(); //Check if fainted, or still active
+					if(isAttacking1){
+						activePok2.setCurrentHP(activePok2.getCurrentHP() - battleDamage(activePok1,moveNum1,activePok2)); //P1 attacks!
+						activePok2.checkState(); //Check if fainted, or still active
+					}
+					if(activePok2.getState() == 1 && isAttacking2){ //if still active
+						activePok1.setCurrentHP(activePok1.getCurrentHP() - battleDamage(activePok2,moveNum2,activePok1)); //P2 attacks!
+						activePok1.checkState(); //Check if fainted, or still active
+					}
+				}else{ //activePok1.getCurrentSpe() < activePok2.getCurrentSpe() || playerFirst == false
+
+					if(isAttacking2){
+						activePok1.setCurrentHP(activePok1.getCurrentHP() - battleDamage(activePok2,moveNum2,activePok1));
+						activePok1.checkState();
+					}
+					if(activePok1.getState() == 1 && isAttacking1){
+						activePok2.setCurrentHP(activePok2.getCurrentHP() - battleDamage(activePok1,moveNum1,activePok2));
+						activePok2.checkState();
+					}
 				}
-			}else{ //activePok1.getCurrentSpe() < activePok2.getCurrentSpe() || playerFirst == false
-
-				activePok1.setCurrentHP(activePok1.getCurrentHP() - battleDamage(activePok2,moveNum2,activePok1));
-				activePok1.checkState();
-				if(activePok1.getState() == 1){
-					activePok2.setCurrentHP(activePok2.getCurrentHP() - battleDamage(activePok1,moveNum1,activePok2));
-					activePok2.checkState();
-				}
-			}
 			}//if isAttacking end bracket
 
 
@@ -238,7 +245,7 @@ public class ServerBattle {
 
 			if(activePok2.getState() == 0 && !t2.isFaintedTeam()){ //Same for above, simply inversed for opponent
 				writer2.println("Select a new Pokemon, by number"); //Can switch to new Poke!
-				writer2.println(t1.toString());
+				writer2.println(t2.toString());
 				writer2.flush();
 				writer1.println("Foe is thinking over his next Pokemon...");
 				writer1.flush();
