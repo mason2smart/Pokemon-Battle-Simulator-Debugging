@@ -288722,4 +288722,212 @@ null
 null
 null
 null
-null
+nullWelcome to the 2016 Pokemon Battle Simulator!!!
+
+                                                            
+          MMMM                                              
+             MZZZZZ7I77                          =          
+       IIII$ZZ$$$Z$$ZZZZZ$77I       =        M   =?M        
+          7$$$$Z$$$Z$$ZZZZ$77O      ==I    N8=7  ??=M       
+              NZZZ$$$$$OO    M        =?I88888ZZ ?:$$       
+             N$$Z$$$$$$ZZ             ?+?Z8888DZ7O:$$M      
+          M$$$$$$$$ZZ$$NZ             I??:NOO  $ZZZOOZ?     
+        OOZ$$$$$$$$$$$$$ZM            8???:+??? 7ZZZOOZ     
+      OOOOOOO$$$$$$$Z$$$$Z           M888O?:::::==Z ZOOD    
+    ZOOOOOOOOOMOZ$$$$$$$$ZZN       7778777$ZZ===~:ZZDZO=I   
+  =          ZOOOOOOOOOOZZZZZ    D  $7ZZZZ~~~~  ~=I8Z$7O7   
+  =        MOOOOOOOOOOOOOOOONOO?+OM$$ZZ=~~~7O    ~Z+M.77    
+   =~~    OOOOOOOOOOOOOOOOOOOONZZM$ZZ$~~~~  O     I$M       
+   ==:   OOOOOOOOOOMZOOOOOOOOOOZ7778?=~~~~ZD+=              
+  ??~I MOOOOOOOOM  8OOOOOOOOOOOO$$ZZ??~~~~ZZ?               
+  ?:~?8$ZZOOO     MOOOOOOON N7ZZM$Z$~~~~~~OO      .Z        
+   ?~ZZ$$         OOOOOOO  MOZZZOZZ~~::~~~OOO    MO.Z       
+    ??~=?        ZZOOOM    OOZZZZ$7$~~~~~~~ OOOOOOO+O       
+    ??:~?       $$$O       8DZZ$777MZ~~~~~~M OOOOOOO        
+       7                   M$7MZ778DN~~~~~~~                
+       8Z                ZZZZZZZZ~D~~~~~~~~~Z               
+        O7Z          ZZZ7ZZ$ZZZZZ~~~~~~~~~~~ZZ              
+         IO77$$ZZZ$$7777MZZ7ZZZZZ:~~~~~~~~=ZZZZM            
+          MIOOZZZZZ$$$ZZZZZ7ZZZZZDIIIIIII?OOOOOO            
+             ?I7OOOOOOOOOZ77$ZZZZIIIIII?OOOOOOOO            
+                 M+??I?8OOOOZZZZZ+==M   8OOO88              
+                       OOOOOOOO         M8888O              
+                       OOOOO            M8OOOOO+=M          
+                       OOO8OM                  , Z          
+                       . $,8,.                              
+                       M                                    
+                                                            
+Local or Multiplayer? (Type "1" for local, "2" for multiplayer)
+Welcome to the 2016 Pokemon Battle Simulator!!!
+
+                                                            
+          MMMM                                              
+             MZZZZZ7I77                          =          
+       IIII$ZZ$$$Z$$ZZZZZ$77I       =        M   =?M        
+          7$$$$Z$$$Z$$ZZZZ$77O      ==I    N8=7  ??=M       
+              NZZZ$$$$$OO    M        =?I88888ZZ ?:$$       
+             N$$Z$$$$$$ZZ             ?+?Z8888DZ7O:$$M      
+          M$$$$$$$$ZZ$$NZ             I??:NOO  $ZZZOOZ?     
+        OOZ$$$$$$$$$$$$$ZM            8???:+??? 7ZZZOOZ     
+      OOOOOOO$$$$$$$Z$$$$Z           M888O?:::::==Z ZOOD    
+    ZOOOOOOOOOMOZ$$$$$$$$ZZN       7778777$ZZ===~:ZZDZO=I   
+  =          ZOOOOOOOOOOZZZZZ    D  $7ZZZZ~~~~  ~=I8Z$7O7   
+  =        MOOOOOOOOOOOOOOOONOO?+OM$$ZZ=~~~7O    ~Z+M.77    
+   =~~    OOOOOOOOOOOOOOOOOOOONZZM$ZZ$~~~~  O     I$M       
+   ==:   OOOOOOOOOOMZOOOOOOOOOOZ7778?=~~~~ZD+=              
+  ??~I MOOOOOOOOM  8OOOOOOOOOOOO$$ZZ??~~~~ZZ?               
+  ?:~?8$ZZOOO     MOOOOOOON N7ZZM$Z$~~~~~~OO      .Z        
+   ?~ZZ$$         OOOOOOO  MOZZZOZZ~~::~~~OOO    MO.Z       
+    ??~=?        ZZOOOM    OOZZZZ$7$~~~~~~~ OOOOOOO+O       
+    ??:~?       $$$O       8DZZ$777MZ~~~~~~M OOOOOOO        
+       7                   M$7MZ778DN~~~~~~~                
+       8Z                ZZZZZZZZ~D~~~~~~~~~Z               
+        O7Z          ZZZ7ZZ$ZZZZZ~~~~~~~~~~~ZZ              
+         IO77$$ZZZ$$7777MZZ7ZZZZZ:~~~~~~~~=ZZZZM            
+          MIOOZZZZZ$$$ZZZZZ7ZZZZZDIIIIIII?OOOOOO            
+             ?I7OOOOOOOOOZ77$ZZZZIIIIII?OOOOOOOO            
+                 M+??I?8OOOOZZZZZ+==M   8OOO88              
+                       OOOOOOOO         M8888O              
+                       OOOOO            M8OOOOO+=M          
+                       OOO8OM                  , Z          
+                       . $,8,.                              
+                       M                                    
+                                                            
+Local or Multiplayer? (Type "1" for local, "2" for multiplayer)
+Welcome to the 2016 Pokemon Battle Simulator!!!
+
+                                                                                                    
+                                                                                                    
+                                                                                                    
+              7777777$$ZZZZ$NM                                                  II                  
+                     MD$ZZZZZZZ$77OO7$M                                           =                 
+            MMO7II7$Z$ZZ$$$$NZZZZZZZ$$Z$$$7777N             =              M      ==I               
+            MIIIII7$ZZZZ$$$$$$ZZD$ZZZZZZZZZ$7777M           I==            =M    I+=? =M            
+               NI7$$$Z$$$$$$$$$$ZZZZZZZZZZ$$77777M          I===           M=N   I??? ==            
+                  MZ$Z$$Z$$$$$$Z$$Z$$MZOOOOOO$777I           ====I     M8888+=Z  I??=I+=            
+                       NZZZ$$$$$$$$$$$ZOOO       I             ==+?I M8888888Z$Z  ?~:?Z$M           
+                         NZZZZ$$$$$$$$DZON                     ===+??88888888DZ$ZD?~~?ZZZ           
+                      O$$$$$$$$$ZZ$$$$$ZZZ                     I??+??Z8888MM88MZ$7ZM~~ZZZM          
+                   M$$$$$$$$$$$$$Z$$$$$NZZ                      ????+:88MOO  OZMZZ$ZZOOZZZ          
+                 $$Z$$$Z$$$$$$$$$Z$$$$$ZZZ                      M????~~=????I  7$ZZZZOOOOZM?I       
+              MOO$$$$$$$$$$$$$$$$Z$$$$$$ZZM                     88???=~:=?????  7$ZZZZOOOOZZI       
+            DOOOOOOZ$$$$$$$$$$$$$$$$$$$$ZZZ                    8888887?:~???+=+?7$ZZZZZOOOOOO       
+          OOOOOOOOOOOOZ$$$$$$$$$$$Z$$Z$$$ZZZ                   888888O$?~~::~~::===?ZZ,MZOOOO       
+        ZOOOOOOOOOOOOOOOOZO$$$$$$$$$$$$$$ZDZZD                M88777777$=======~::::$$ $MZOO=:I     
+      NZZOOOOOOOOOOOZDM  OOOOZZ$$$$$$$$$$ZZZZZ$            M77777777$$ZZZZZ$=====~::,ZZZZZOOO:I     
+        MMMMM          OOOOOOOOOOOOOZZ$$$$$$$MZZM           M777$$ZZZZZM~~~~~~?I~~I=:OZZZ$77OO$     
+    =                MOOOOOOOOOOOOOOOOOOOOOOOONOOO    ==     $$ZZZZZM~~~~~~M     7~O===DDZ7ZNZO     
+    ==              OOOOOOOOOOOOOOOOOOOOOOOOOOOZOOOOM?+8M M$7$ZZZZ~~~~~~~8OO      ~~Z?+? .$77I      
+     ==:I         ZOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOZNN77I7OZZZZZZZN~~~~~~N DOM       ?Z +?,           
+      ==:~I      OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO$$ZZ$77ZZZZ=M~~~~~~M  MOM        Z??M            
+     ====:?    MOOOOOOOOOOOOOOOOOO OOOOOOOOOOOOOOOONZZ77777$$+=D~~~~~7ZZ8 N=M                       
+     +++:=I   ZOOOOOOOOOOOOOOOOM  OOOOOOOOOOOOOOOOOOM87777ZI?+++~~~~~~ZZZ?+=M                       
+    I??~??   ZOOOOOOOOOOOOOON    OOOOOOOOOOOOOOOOOOOO$7$$ZZZ???N~~I~~~$ZZ7?+                        
+   I??~~?   ZZZOOOOOOOOOOM      OOOOOOOOOOOOOO OOONZZZZZZZZZZZM~~~~~~~DZZ8                          
+    ??~~~??$$$$ZZZOOON         OOOOOOOOOOOOO  MO77$ZZMOO$ZZ8~~~~~~~~~~=OOM         ..ZZM            
+     ??~~=Z$$$$$ZN            OOOOOOOOOOOOM   8O7$ZMZOOOOZ$~~~::::~~~~~OOO         DO:$8            
+      I??$Z$M??              OOOOOOOOOOOM     OO8ZZZ$OOZZZ~~~~::::~~~~~MOOOM      MOOOOZZ           
+       ???~:????            NZZOOOOOOOM       OOONZZZZ8ZZI7$M~::~~~~~~~~ OOOOMMDOOOO8=MOOM          
+       ???:~~:??            ZZ$ZZZOZ          OO8ZMZZZ$$777$D=~~~~~~~~~~M OOOOOOOOOOOOOM            
+MMMMMMM???~:~~??MMMMMMMMMMM$$$$Z8MMMMMMMMMMMMMOOZZZZZ777777O$$~~~~~~~~~~~MMNOOOOOOOOOOMMMMMMMMMMMMMM
+MMMMMMMMI?=8??MMMMMMMMMMMMDZZMMMMMMMMMMMMMMMMMOZZ$ZZZ777777$ZZ~~~~~~~~~~~MMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMM$$MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMZ$7$Z$ZZ777ZZN~~~~~~~~~~~~~NMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMN7ZMMMMMMMMMMMMMMMMMMMMMMMMMMMMZ8ZZ7ZZZZZZZ?DZZ~~~~~~~~~~~~~~DNMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMO7$MMMMMMMMMMMMMMMMMMMMMMMMZZ$ZZZ$ZZZZZZZZ~~~~~~~~~~~~~~~~~~DZZMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMZ$7ZMMMMMMMMMMMMMMMMMMZZZZ$7OZZZ7ZZZZZZZZ~~~~~~~~~~~~~~~~~~$ZZZMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMZO$7$ZMMMMMMMMMM$ZZ$$$$777OZZZ$7ZZZZZZZZO~~~~~~~~~~~~~~~~DZZZZZMMMMMMMMMMMMMMMMMMMN8Z
+MMMMMMMMMMMMMMMM?8O$77$$$$$$$$$7777777777ZZZZ77ZZZZZZZZZ=~~~~~~~~~~~~=??OOZZZZZ8MMMMMMMMMMMMMMNOZ7II
+MMMMMMMMMMMMMMMMMM?8OOZ$7$$$$$$$7$$$$$ZZ8ZZZZ77$ZZZZZZZZ?IIIII???IIIII8OOOOOOOOOMMMMMMMMMMMMMMD7IIII
+MMMMMMMMMMMMMMMMMMMZI?OOOOOOOZZZZZZOOOOOOZZZ$77$ZZZZZZZZ?IIIIIII???IIOOOOOOOOOOOOMMMMMMMMMMMMMMMND8O
+MMMMMMMMMMMMMMMMMMMMMMIIIZOOOOOOOOOOOOOODOZZ7777ZZZZZZZZIIIIIIIIIIIDOOOOOOOOOOOOMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMM8I?I?I?????????NOOOZZ$ZZZZZZZZ?IIIIIIIIMMOOOOOOOOOOOODMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMD++?????MOOOOOOOOZZZZZO?+==?MMMMMMMMM88OO8888MMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMOOOOOOOOOODOOMMMMMMMMMMMMMMMMN8888888MMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMOOOOOOOOO8OMMMMMMMMMMMMMMMMMM8888888OOOOMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMOOOOOOOOMMMMMMMMMMMMMMMMMMMMMO88OOOOOOOO+=+MMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMOOOOOOOOMMMMMMMMMMMMMMMMMMMMMMMMMDOOO++=+~...MMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMO8MOOONOOOMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMDMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMD=:DO=+MO=~NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM..MMM..MM .NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM.MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+Local or Multiplayer? (Type "1" for local, "2" for multiplayer)
+Welcome to the 2016 Pokemon Battle Simulator!!!
+
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM,MMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMM=MMMMMMMMMM?.MMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMM,~NMMMMMMMM7,MMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMM,~MMMMMMMMM:..~MMMMM.MM7$$M:MMMMMMMMMMMMMMMMM
+MMMMMMMM..    ...,7MMMMMMMM,:~=++8++?+7$O$. MMM~MMMMMMMMMMMM
+MMMMMMMMMM:,....,,.=$,.NMMMMM...,?:...:.I$~:.MM=7MMMMMMMMMMM
+MMMMMMMMMMMM==+~?=7?ZOMMMMMMMMMMZ+..:N~.O.IZ.M,,=MMMMMMMMMMM
+MMMMMMMMMMMMMMI?I?I$.$MMMMMMMMMMM.=.~~.:.:I$ZI,,,MMMMMMMMMMM
+MMMMMMMMD.  .~+????II+MMMMMMMM,I..,+?I8:~?:,D$?$....=MMMMMMM
+MMM+,.....+I?II???I7O,7M,MMMMMM+?+~~+MMM=IN.?N=?~.MMMMMMMMMM
+MMMMM+=++77II?????I7ZO~.:MM:7$??=~~~MMMMZ.~7IIIIMMMMMMMMMMMM
+MMMMMMMMMMMMM???II77ZO.~.M=+7N+~,,:MMMM.$Z7???+=:MMMMMMMMMMM
+MMMMMMMMMMMM,:?IIII7ZO=ZZN77D++~..MM.M8ZZZ7??+~,....MMMMMMMM
+MMMMMMMMMM...=,.7+77ZOO~OZ7N++:...OM88,OO$I??+=?~,...,MMMMMM
+MMMMMMMMM. .:I.$O:..,I:$Z$N++=:D.N$Z7+.O$7II??:MMMMM=,,,MMMM
+MMMMMMM....,.=MMZ +M$7MZZ?==~~:~,DOZ$=MOZ7II?~,..MMMMMMMMMMM
+MMMMMM.. .,MMMM=7+,=MMM~N::~~~~~=NN8MM$77?+M7?~.. MMMMMMMMMM
+MMMMM...NMMMMMM...MMMM.~.,,:~:~~=?7ODMMI:,.MMMM,...MMMMMMMMM
+MMMM+MMMMMMMMMM,MMMMMO. ...,~:~~~+IMZMMM7.Z+.MMMM:,,NMMMMMMM
+MMMMMMMMMMMMMMMMMMMM$:.....,~~~~:~7.$?$$$$N.M:=~......MMMMMM
+MMMMMMMMMMMMMMMMMM+OON.....,~~~~~~$ZZZMM8OZ,.$8MMMMMM..:.MMM
+MMMMMMMMMMMMMMMMN~OO$,....,:~~~~~+$$OOZ?OO$7~MMMMMMM..:.MMMM
+MMMMMMMMMMMMMMMM.ZZ77:...,:~~~:~=+M$$$+..$ZMMMMMMMMM.=+.MMMM
+MMMMMMMMMMMMMMM ,777$+~..,~~~~:=++N$77+...NMMMMMMMM~+=MMMMMM
+MMMMMMMMMMMMMMM ,$$7Z+=,.,~~~~~+==D$7$7....MMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMM~ .?ZOZM+~~==~=~=~~.7$$7$:...IMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMM.  ,ZOOZ+++++++~~,..,$7$77I...MMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMM7..=88O8MMZ:::,,...,M:OZ$ZZZ~,MMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMO888~MMMMMMMMMMMMMMM?ZZZOOOO:MMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMM.7ZOZ,.MMMMMMMMMMMMMMMMM$8M88,MMMMMMMMMMMMMMM
+MMMMMMMMMMMMMM.~$O$+MMMMMMMMMMMMMMMMMMM7OOOZ$MMMMMMMMMMMMMMM
+MMMMMMMMMMMM . .O :MMMMMMMMMMMMMMMMMMMMM.I7Z7+MMMMMMMMMMMMMM
+MMMMMMMMMMMMM:MMM+MMMMMMMMMMMMMMMMMMMMMM ., $M MMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM?~MM  MMOMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM,MMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+Local or Multiplayer? (Type "1" for local, "2" for multiplayer)
+Welcome to the 2016 Pokemon Battle Simulator!!!
+
+                                                            
+          MMMM                                              
+             MZZZZZ7I77                          =          
+       IIII$ZZ$$$Z$$ZZZZZ$77I       =        M   =?M        
+          7$$$$Z$$$Z$$ZZZZ$77O      ==I    N8=7  ??=M       
+              NZZZ$$$$$OO    M        =?I88888ZZ ?:$$       
+             N$$Z$$$$$$ZZ             ?+?Z8888DZ7O:$$M      
+          M$$$$$$$$ZZ$$NZ             I??:NOO  $ZZZOOZ?     
+        OOZ$$$$$$$$$$$$$ZM            8???:+??? 7ZZZOOZ     
+      OOOOOOO$$$$$$$Z$$$$Z           M888O?:::::==Z ZOOD    
+    ZOOOOOOOOOMOZ$$$$$$$$ZZN       7778777$ZZ===~:ZZDZO=I   
+  =          ZOOOOOOOOOOZZZZZ    D  $7ZZZZ~~~~  ~=I8Z$7O7   
+  =        MOOOOOOOOOOOOOOOONOO?+OM$$ZZ=~~~7O    ~Z+M.77    
+   =~~    OOOOOOOOOOOOOOOOOOOONZZM$ZZ$~~~~  O     I$M       
+   ==:   OOOOOOOOOOMZOOOOOOOOOOZ7778?=~~~~ZD+=              
+  ??~I MOOOOOOOOM  8OOOOOOOOOOOO$$ZZ??~~~~ZZ?               
+  ?:~?8$ZZOOO     MOOOOOOON N7ZZM$Z$~~~~~~OO      .Z        
+   ?~ZZ$$         OOOOOOO  MOZZZOZZ~~::~~~OOO    MO.Z       
+    ??~=?        ZZOOOM    OOZZZZ$7$~~~~~~~ OOOOOOO+O       
+    ??:~?       $$$O       8DZZ$777MZ~~~~~~M OOOOOOO        
+       7                   M$7MZ778DN~~~~~~~                
+       8Z                ZZZZZZZZ~D~~~~~~~~~Z               
+        O7Z          ZZZ7ZZ$ZZZZZ~~~~~~~~~~~ZZ              
+         IO77$$ZZZ$$7777MZZ7ZZZZZ:~~~~~~~~=ZZZZM            
+          MIOOZZZZZ$$$ZZZZZ7ZZZZZDIIIIIII?OOOOOO            
+             ?I7OOOOOOOOOZ77$ZZZZIIIIII?OOOOOOOO            
+                 M+??I?8OOOOZZZZZ+==M   8OOO88              
+                       OOOOOOOO         M8888O              
+                       OOOOO            M8OOOOO+=M          
+                       OOO8OM                  , Z          
+                       . $,8,.                              
+                       M                                    
+                                                            
+Local or Multiplayer? (Type "1" for local, "2" for multiplayer)

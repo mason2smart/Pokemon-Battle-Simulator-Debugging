@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -6,6 +8,7 @@ public class PokemonBattleSimulator {
 	public void runSimulator(){
 
 		System.out.println("Welcome to the 2016 Pokemon Battle Simulator!!!");
+		displayArt();
 		System.out.println("Local or Multiplayer? (Type \"1\" for local, \"2\" for multiplayer)");
 
 		boolean isGoodInput = false;
@@ -71,6 +74,25 @@ public class PokemonBattleSimulator {
 		}
 
 
+
+	}
+
+	public void displayArt(){
+
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("data/art/mcharizardxoff-60.txt"));
+			//Thanks http://www.glassgiant.com/ascii/ !!!!
+			String currLine = null;
+
+			System.out.println();
+
+			while((currLine = reader.readLine()) != null){
+				System.out.println(currLine);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
