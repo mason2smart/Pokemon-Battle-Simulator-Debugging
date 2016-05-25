@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Team {
 
-	private ArrayList<Pokemon> pokemonTeam = new ArrayList<Pokemon>();
+	private ArrayList<Pokemon> pokemonTeam;
 
 	public Team(){
-
+		pokemonTeam = new ArrayList<Pokemon>();
 	}
 
 	public void addPokemon(Pokemon p){

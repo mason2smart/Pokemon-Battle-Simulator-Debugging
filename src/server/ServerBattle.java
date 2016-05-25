@@ -1,10 +1,8 @@
 package server;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -29,7 +27,7 @@ public class ServerBattle {
 	private Team t1;
 	private Team t2;
 
-	private Scanner sc = new Scanner(System.in);
+	private Scanner sc;
 
 	private Socket s1; //perhaps Sockets should instance variables of a Player object?
 	private Socket s2;
@@ -40,11 +38,14 @@ public class ServerBattle {
 	private PrintWriter writer1;
 	private PrintWriter writer2;
 
+	public ServerBattle(){
+		sc = new Scanner(System.in);
+	}
+
 	public void checkConnections(){
 
 		try {
 			boolean isConnectionGood = false;
-
 			ServerSocket servSocket = new ServerSocket(5000);
 
 			while(!isConnectionGood){
