@@ -31,7 +31,7 @@ public class ClientReadMessages implements Runnable {
 			while(!isFinished){
 
 				servIn = reader.readLine();
-				System.out.println(servIn);
+				System.out.println("LICK My ASS" + servIn);
 
 			}
 		} catch (IOException e) {

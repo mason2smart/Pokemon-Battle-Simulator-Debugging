@@ -7,6 +7,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
+import server.ServerUtilities;
+
 public class ClientBattle {
 
 	private Socket s;
@@ -22,7 +24,7 @@ public class ClientBattle {
 
 			BufferedReader teamReader = new BufferedReader(new FileReader("data/team.txt"));
 
-			//ServerUtilities.writeToReaderFromFile(teamReader, writer);
+			ServerUtilities.writeToReaderFromFile(teamReader, writer);
 
 			ClientReadMessages crm = new ClientReadMessages(s);
 			Thread t = new Thread(crm);

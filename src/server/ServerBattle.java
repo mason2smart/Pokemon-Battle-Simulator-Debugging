@@ -93,16 +93,16 @@ public class ServerBattle {
 			e1.printStackTrace();
 		}
 
-		//ServerUtilities.writeToFileFromReader(reader1, tempWriter1);
-		//System.out.println("IT'S CLOSE TO THE AIR");
-		//ServerUtilities.writeToFileFromReader(reader2, tempWriter2);
-		//System.out.println("HOW DO WE SWAY TOWARDS A CONCLUSION YEAH");
+		ServerUtilities.writeToFileFromReader(reader1, tempWriter1);
+		System.out.println("IT'S CLOSE TO THE AIR");
+		ServerUtilities.writeToFileFromReader(reader2, tempWriter2);
+		System.out.println("HOW DO WE SWAY TOWARDS A CONCLUSION YEAH");
 
-		parsePokemonFile(t1,"data/team.txt");
-		parsePokemonFile(t2,"data/opponentteam.txt");
+//		parsePokemonFile(t1,"data/team.txt");
+//		parsePokemonFile(t2,"data/opponentteam.txt");
 
-//		parsePokemonFile(t1,"data/tmp/tempopponentteam1.txt");
-//		parsePokemonFile(t2,"data/tmp/tempopponentteam2.txt");
+		parsePokemonFile(t1,"data/tmp/tempopponentteam1.txt");
+		parsePokemonFile(t2,"data/tmp/tempopponentteam2.txt");
 
 		isBattle = true;
 	}

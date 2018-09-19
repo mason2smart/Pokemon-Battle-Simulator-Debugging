@@ -19,7 +19,7 @@ public class ServerUtilities {
 
 				fileWriter.println(currLine);
 				fileWriter.flush();
-				//System.out.println("I'M READING FROM READER WRITING TO FILE!!" + "  " + cnt);
+				System.out.println("I'M READING FROM READER WRITING TO FILE!!" + "  " + cnt);
 				cnt++;
 			}
 			//System.out.println("Wow ur a fgt for getting here");
@@ -38,7 +38,7 @@ public class ServerUtilities {
 			while((currLine = fileReader.readLine()) != null){
 				writer.println(currLine);
 				writer.flush();
-				//System.out.println("I'M WRITING TO READER FROM FILE!!   " + cnt);
+				System.out.println("I'M WRITING TO READER FROM FILE!!   " + cnt);
 				cnt++;
 			}
 		} catch (IOException e) {
