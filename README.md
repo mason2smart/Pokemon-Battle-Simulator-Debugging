@@ -2,10 +2,11 @@
 A Pokemon Battle engine coded in Java. Has local and multiplayer options (multiplayer not perfect), only runs from command line.
 
 <br>
-<div align="center"><img src="http://i.imgur.com/C9VgeW7.png/></div><br>
+<div align="center"><img src="http://i.imgur.com/C9VgeW7.png"/></div><br>
 Image of the simulator from the Ubuntu 16.04 terminal
 <br>
 <br>
+
 ## Features
 
 ### Local:
