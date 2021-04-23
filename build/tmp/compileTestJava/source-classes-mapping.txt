@@ -1,8 +1,10 @@
+MoveTest.java
+ MoveTest
 BattleLoopTest.java
  BattleLoopTest
 TeamTest.java
  TeamTest
 PokemonTest.java
  PokemonTest
-MoveTest.java
- MoveTest
+server/ServerBattleTest.java
+ server.ServerBattleTest
