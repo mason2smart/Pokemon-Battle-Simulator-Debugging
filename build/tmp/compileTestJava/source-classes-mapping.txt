@@ -1,0 +1,8 @@
+BattleLoopTest.java
+ BattleLoopTest
+TeamTest.java
+ TeamTest
+PokemonTest.java
+ PokemonTest
+MoveTest.java
+ MoveTest

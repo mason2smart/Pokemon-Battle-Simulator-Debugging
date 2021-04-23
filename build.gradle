@@ -10,13 +10,19 @@ repositories {
     mavenCentral()
 }
 
+sourceSets {
+    main {
+        resources {
+            srcDirs "src/main/resources"
+        }
+    }
+}
+
 dependencies {
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     implementation 'org.mockito:mockito-core:3.7.7'
-    implementation group: 'com.sun', name: 'javaws', version: '1.5' //add dependency for imported class in
-
 }
 
 test {
