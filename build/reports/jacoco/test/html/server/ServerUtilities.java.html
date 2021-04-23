@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ServerUtilities.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pokemon-Battle-Simulator-Debugging</a> &gt; <a href="index.source.html" class="el_package">server</a> &gt; <span class="el_source">ServerUtilities.java</span></div><h1>ServerUtilities.java</h1><pre class="source lang-java linenums">package server;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+public class ServerUtilities {
+
+	private ServerUtilities(){
+
+	}
+
+	public static void writeToFileFromReader(BufferedReader reader, PrintWriter fileWriter){
+
+		String currLine;
+
+<span class="nc" id="L17">		try { int cnt = 0;</span>
+<span class="nc bnc" id="L18" title="All 2 branches missed.">			while((currLine = reader.readLine()) != null){</span>
+
+<span class="nc" id="L20">				fileWriter.println(currLine);</span>
+<span class="nc" id="L21">				fileWriter.flush();</span>
+<span class="nc" id="L22">				System.out.println(&quot;I'M READING FROM READER WRITING TO FILE!!&quot; + &quot;  &quot; + cnt);</span>
+<span class="nc" id="L23">				cnt++;</span>
+			}
+			//System.out.println(&quot;Wow ur a fgt for getting here&quot;);
+<span class="nc" id="L26">		} catch (IOException e) {</span>
+			// TODO Auto-generated catch block
+<span class="nc" id="L28">			e.printStackTrace();</span>
+<span class="nc" id="L29">		}</span>
+
+<span class="nc" id="L31">	}</span>
+
+	public static void writeToReaderFromFile(BufferedReader fileReader, PrintWriter writer){
+		//This code is exactly the same... maybe will fuse down the road
+		String currLine;
+
+<span class="nc" id="L37">		try {int cnt = 0;</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">			while((currLine = fileReader.readLine()) != null){</span>
+<span class="nc" id="L39">				writer.println(currLine);</span>
+<span class="nc" id="L40">				writer.flush();</span>
+<span class="nc" id="L41">				System.out.println(&quot;I'M WRITING TO READER FROM FILE!!   &quot; + cnt);</span>
+<span class="nc" id="L42">				cnt++;</span>
+			}
+<span class="nc" id="L44">		} catch (IOException e) {</span>
+			// TODO Auto-generated catch block
+<span class="nc" id="L46">			e.printStackTrace();</span>
+<span class="nc" id="L47">		}</span>
+
+<span class="nc" id="L49">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,55 @@
+Volcarona @ Chesto Berry  
+Ability: Flame Body  
+EVs: 72 HP / 252 SpA / 184 Spe  
+Modest Nature  
+- Fiery Dance  
+- Bug Buzz  
+- Giga Drain  
+- Hyper Beam  
+
+Dragonite @ Choice Band  
+Ability: Multiscale  
+EVs: 4 HP / 252 Atk / 252 Spe  
+Adamant Nature  
+- Outrage  
+- Earthquake  
+- Fire Punch  
+- Brick Break  
+
+Chandelure @ Choice Scarf  
+Ability: Flash Fire  
+EVs: 4 HP / 252 SpA / 252 Spe  
+Modest Nature  
+- Overheat  
+- Shadow Ball  
+- Hidden Power [Ice]  
+- Energy Ball  
+
+Lucario @ Life Orb  
+Ability: Justified  
+EVs: 252 Atk / 4 SpD / 252 Spe  
+Jolly Nature  
+- Close Combat  
+- Bullet Punch  
+- Ice Punch  
+- Thunder Punch  
+
+Starmie @ Life Orb  
+Ability: Natural Cure  
+EVs: 4 HP / 252 SpA / 252 Spe  
+Modest Nature  
+- Hydro Pump  
+- Ice Beam  
+- Thunder  
+- Psychic  
+
+Scizor @ Leftovers  
+Ability: Technician  
+EVs: 252 HP / 252 Atk / 4 SpD  
+Adamant Nature  
+- Knock Off  
+- Iron Head  
+- X-Scissor  
+- Superpower  
+
+

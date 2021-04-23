@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="PokemonTest" tests="82" skipped="0" failures="40" errors="0" timestamp="2021-04-23T21:05:08" hostname="ROG-HELIOS" time="1.243">
+<testsuite name="PokemonTest" tests="82" skipped="0" failures="40" errors="0" timestamp="2021-04-23T21:09:54" hostname="ROG-HELIOS" time="1.256">
   <properties/>
-  <testcase name="testPokemon2HasCorrectName()" classname="PokemonTest" time="0.178"/>
-  <testcase name="testPokemon2HasCorrectType()" classname="PokemonTest" time="0.047"/>
-  <testcase name="testPokemon2InvalidNameFails()" classname="PokemonTest" time="0.022"/>
-  <testcase name="testSetCurrentHPZero()" classname="PokemonTest" time="0.009"/>
-  <testcase name="testSetSpDNegative()" classname="PokemonTest" time="0.011">
+  <testcase name="testPokemon2HasCorrectName()" classname="PokemonTest" time="0.177"/>
+  <testcase name="testPokemon2HasCorrectType()" classname="PokemonTest" time="0.046"/>
+  <testcase name="testPokemon2InvalidNameFails()" classname="PokemonTest" time="0.02"/>
+  <testcase name="testSetCurrentHPZero()" classname="PokemonTest" time="0.008"/>
+  <testcase name="testSetSpDNegative()" classname="PokemonTest" time="0.01">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;-1&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;-1&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -201,7 +201,7 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testMovesToString()" classname="PokemonTest" time="0.041">
+  <testcase name="testMovesToString()" classname="PokemonTest" time="0.043">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;(0) Tackle (1) Thunderbolt (2) Quick Attack (3) Growl&gt; but was: &lt; (0) Tackle (1) Thunderbolt (2) Quick Attack (3) Growl&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;(0) Tackle (1) Thunderbolt (2) Quick Attack (3) Growl&gt; but was: &lt; (0) Tackle (1) Thunderbolt (2) Quick Attack (3) Growl&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -300,12 +300,12 @@
 </failure>
   </testcase>
   <testcase name="testPokemon2HasCorrectMoves()" classname="PokemonTest" time="0.044"/>
-  <testcase name="testPokemon2HasCorrectTypes()" classname="PokemonTest" time="0.04"/>
-  <testcase name="testBoostAtkZero()" classname="PokemonTest" time="0.009"/>
-  <testcase name="testPokemon1InvalidNatureFails()" classname="PokemonTest" time="0.017"/>
+  <testcase name="testPokemon2HasCorrectTypes()" classname="PokemonTest" time="0.044"/>
+  <testcase name="testBoostAtkZero()" classname="PokemonTest" time="0.008"/>
+  <testcase name="testPokemon1InvalidNatureFails()" classname="PokemonTest" time="0.018"/>
   <testcase name="testPokemon2HasCorrectNature()" classname="PokemonTest" time="0.042"/>
-  <testcase name="testCheckStateFainted()" classname="PokemonTest" time="0.011"/>
-  <testcase name="testSetSpeNegative()" classname="PokemonTest" time="0.012">
+  <testcase name="testCheckStateFainted()" classname="PokemonTest" time="0.008"/>
+  <testcase name="testSetSpeNegative()" classname="PokemonTest" time="0.011">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;-1&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;-1&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -500,11 +500,11 @@
 </failure>
   </testcase>
   <testcase name="testSetCurrentAtkZero()" classname="PokemonTest" time="0.008"/>
-  <testcase name="testSetFourMoves()" classname="PokemonTest" time="0.032"/>
-  <testcase name="testPokemon1HasCorrectTypes()" classname="PokemonTest" time="0.016"/>
-  <testcase name="testPokemon2InvalidMovesFails()" classname="PokemonTest" time="0.017"/>
-  <testcase name="testSetHP()" classname="PokemonTest" time="0.009"/>
-  <testcase name="testSetCurrentHP()" classname="PokemonTest" time="0.009">
+  <testcase name="testSetFourMoves()" classname="PokemonTest" time="0.034"/>
+  <testcase name="testPokemon1HasCorrectTypes()" classname="PokemonTest" time="0.017"/>
+  <testcase name="testPokemon2InvalidMovesFails()" classname="PokemonTest" time="0.018"/>
+  <testcase name="testSetHP()" classname="PokemonTest" time="0.008"/>
+  <testcase name="testSetCurrentHP()" classname="PokemonTest" time="0.008">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;211&gt; but was: &lt;212&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;211&gt; but was: &lt;212&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -602,8 +602,8 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testStatCalculations()" classname="PokemonTest" time="0.008"/>
-  <testcase name="testSetSpANegative()" classname="PokemonTest" time="0.008">
+  <testcase name="testStatCalculations()" classname="PokemonTest" time="0.009"/>
+  <testcase name="testSetSpANegative()" classname="PokemonTest" time="0.009">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;-1&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;-1&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -701,7 +701,7 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testCalculateNatureHardy()" classname="PokemonTest" time="0.017">
+  <testcase name="testCalculateNatureHardy()" classname="PokemonTest" time="0.018">
     <failure message="java.lang.NullPointerException" type="java.lang.NullPointerException">java.lang.NullPointerException
 	at battle.Pokemon.calculateNature(Pokemon.java:197)
 	at battle.Pokemon.calculateStats(Pokemon.java:180)
@@ -798,9 +798,9 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testCalculateNatureJolly()" classname="PokemonTest" time="0.016"/>
-  <testcase name="testCalculateNatureQuiet()" classname="PokemonTest" time="0.02"/>
-  <testcase name="testPokemon3InvalidNameFails()" classname="PokemonTest" time="0.009">
+  <testcase name="testCalculateNatureJolly()" classname="PokemonTest" time="0.018"/>
+  <testcase name="testCalculateNatureQuiet()" classname="PokemonTest" time="0.019"/>
+  <testcase name="testPokemon3InvalidNameFails()" classname="PokemonTest" time="0.01">
     <failure message="org.opentest4j.AssertionFailedError: Expected java.lang.NullPointerException to be thrown, but nothing was thrown." type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Expected java.lang.NullPointerException to be thrown, but nothing was thrown.
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:71)
 	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:37)
@@ -896,12 +896,12 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testSetCurrentAtkNegative()" classname="PokemonTest" time="0.008"/>
-  <testcase name="testCalculateNatureLonely()" classname="PokemonTest" time="0.016"/>
-  <testcase name="testPokemon3HasCorrectName()" classname="PokemonTest" time="0.011"/>
+  <testcase name="testSetCurrentAtkNegative()" classname="PokemonTest" time="0.009"/>
+  <testcase name="testCalculateNatureLonely()" classname="PokemonTest" time="0.017"/>
+  <testcase name="testPokemon3HasCorrectName()" classname="PokemonTest" time="0.008"/>
   <testcase name="testPokemon3HasCorrectType()" classname="PokemonTest" time="0.008"/>
-  <testcase name="testSetCurrentHPNegative()" classname="PokemonTest" time="0.009"/>
-  <testcase name="testSetDefZero()" classname="PokemonTest" time="0.008">
+  <testcase name="testSetCurrentHPNegative()" classname="PokemonTest" time="0.008"/>
+  <testcase name="testSetDefZero()" classname="PokemonTest" time="0.009">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;0&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;0&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -1099,7 +1099,7 @@
   </testcase>
   <testcase name="testPokemon3HasCorrectNature()" classname="PokemonTest" time="0.009"/>
   <testcase name="testSetInvalidMove()" classname="PokemonTest" time="0.015"/>
-  <testcase name="testCheckStateNonfainted()" classname="PokemonTest" time="0.008"/>
+  <testcase name="testCheckStateNonfainted()" classname="PokemonTest" time="0.009"/>
   <testcase name="testSetCurrentAtkAboveMax()" classname="PokemonTest" time="0.008">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;164&gt; but was: &lt;163&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;164&gt; but was: &lt;163&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
@@ -1296,7 +1296,7 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testSetCurrentSpeNegative()" classname="PokemonTest" time="0.011">
+  <testcase name="testSetCurrentSpeNegative()" classname="PokemonTest" time="0.009">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;-1&gt; but was: &lt;218&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;-1&gt; but was: &lt;218&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -1394,7 +1394,7 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testSetCurrentHPAboveMax()" classname="PokemonTest" time="0.008"/>
+  <testcase name="testSetCurrentHPAboveMax()" classname="PokemonTest" time="0.009"/>
   <testcase name="testSetSpAZero()" classname="PokemonTest" time="0.011">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;0&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;0&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
@@ -1493,7 +1493,7 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testSetSpDZero()" classname="PokemonTest" time="0.009">
+  <testcase name="testSetSpDZero()" classname="PokemonTest" time="0.01">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;0&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;0&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -1591,7 +1591,7 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testSetCurrentSpDAboveMax()" classname="PokemonTest" time="0.008">
+  <testcase name="testSetCurrentSpDAboveMax()" classname="PokemonTest" time="0.009">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;139&gt; but was: &lt;138&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;139&gt; but was: &lt;138&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -1689,7 +1689,7 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testSetSpeZero()" classname="PokemonTest" time="0.008">
+  <testcase name="testSetSpeZero()" classname="PokemonTest" time="0.009">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;0&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;0&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -1887,7 +1887,7 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testSetCurrentSpeAboveMax()" classname="PokemonTest" time="0.008">
+  <testcase name="testSetCurrentSpeAboveMax()" classname="PokemonTest" time="0.009">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;219&gt; but was: &lt;218&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;219&gt; but was: &lt;218&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -1985,7 +1985,7 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testSetCurrentDefZero()" classname="PokemonTest" time="0.009">
+  <testcase name="testSetCurrentDefZero()" classname="PokemonTest" time="0.008">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;0&gt; but was: &lt;118&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;0&gt; but was: &lt;118&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -2083,9 +2083,9 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testPokemon3InvalidNatureFails()" classname="PokemonTest" time="0.009"/>
+  <testcase name="testPokemon3InvalidNatureFails()" classname="PokemonTest" time="0.008"/>
   <testcase name="testPokemon1InvalidNameFails()" classname="PokemonTest" time="0.016"/>
-  <testcase name="testSetHPZero()" classname="PokemonTest" time="0.009">
+  <testcase name="testSetHPZero()" classname="PokemonTest" time="0.008">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;0&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;0&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -2278,7 +2278,7 @@
 </failure>
   </testcase>
   <testcase name="testPokemon1HasCorrectNature()" classname="PokemonTest" time="0.008"/>
-  <testcase name="testBoostAtkPositive()" classname="PokemonTest" time="0.009">
+  <testcase name="testBoostAtkPositive()" classname="PokemonTest" time="0.008">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;150&gt; but was: &lt;100&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;150&gt; but was: &lt;100&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -2376,7 +2376,7 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testSetCurrentAtk()" classname="PokemonTest" time="0.009">
+  <testcase name="testSetCurrentAtk()" classname="PokemonTest" time="0.008">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;160&gt; but was: &lt;161&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;160&gt; but was: &lt;161&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -2474,7 +2474,7 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testSetCurrentDef()" classname="PokemonTest" time="0.008">
+  <testcase name="testSetCurrentDef()" classname="PokemonTest" time="0.011">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;117&gt; but was: &lt;118&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;117&gt; but was: &lt;118&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -2572,7 +2572,7 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testSetCurrentSpA()" classname="PokemonTest" time="0.011">
+  <testcase name="testSetCurrentSpA()" classname="PokemonTest" time="0.008">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;123&gt; but was: &lt;124&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;123&gt; but was: &lt;124&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -2768,7 +2768,7 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testSetCurrentSpe()" classname="PokemonTest" time="0.009">
+  <testcase name="testSetCurrentSpe()" classname="PokemonTest" time="0.008">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;217&gt; but was: &lt;218&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;217&gt; but was: &lt;218&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -3062,7 +3062,7 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testPokemon2OneMoveHasCorrectName()" classname="PokemonTest" time="0.022">
+  <testcase name="testPokemon2OneMoveHasCorrectName()" classname="PokemonTest" time="0.023">
     <failure message="java.lang.ArrayIndexOutOfBoundsException: 1" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: 1
 	at battle.Pokemon.setMoves(Pokemon.java:342)
 	at battle.Pokemon.&lt;init&gt;(Pokemon.java:133)
@@ -3157,7 +3157,7 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testSetCurrentSpAZero()" classname="PokemonTest" time="0.008">
+  <testcase name="testSetCurrentSpAZero()" classname="PokemonTest" time="0.009">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;0&gt; but was: &lt;124&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;0&gt; but was: &lt;124&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -3255,7 +3255,7 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testSetCurrentSpDZero()" classname="PokemonTest" time="0.009">
+  <testcase name="testSetCurrentSpDZero()" classname="PokemonTest" time="0.008">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;0&gt; but was: &lt;138&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;0&gt; but was: &lt;138&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -3846,12 +3846,12 @@
 </failure>
   </testcase>
   <testcase name="testSetAtk()" classname="PokemonTest" time="0.009"/>
-  <testcase name="testSetDef()" classname="PokemonTest" time="0.009"/>
-  <testcase name="testSetSpA()" classname="PokemonTest" time="0.011"/>
+  <testcase name="testSetDef()" classname="PokemonTest" time="0.011"/>
+  <testcase name="testSetSpA()" classname="PokemonTest" time="0.008"/>
   <testcase name="testSetSpD()" classname="PokemonTest" time="0.008"/>
   <testcase name="testSetSpe()" classname="PokemonTest" time="0.008"/>
   <testcase name="testPokemon3HasCorrectTypes()" classname="PokemonTest" time="0.008"/>
-  <testcase name="testSetAtkNegative()" classname="PokemonTest" time="0.008">
+  <testcase name="testSetAtkNegative()" classname="PokemonTest" time="0.009">
     <failure message="org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;-1&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;1&gt; but was: &lt;-1&gt;
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)

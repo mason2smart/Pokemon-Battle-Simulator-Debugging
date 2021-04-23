@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BattleLoop.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Pokemon-Battle-Simulator-Debugging</a> &gt; <a href="index.source.html" class="el_package">battle</a> &gt; <span class="el_source">BattleLoop.java</span></div><h1>BattleLoop.java</h1><pre class="source lang-java linenums">package battle;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Random;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+
+<span class="fc" id="L17">public class BattleLoop {</span>
+
+	private boolean isBattle;
+	private Team t1;
+	private Team t2;
+
+	public void startBattle(){
+
+		//System.out.println(&quot;Welcome to the 2016 Pokemon Battle Simulator!!!&quot;);
+
+<span class="nc" id="L27">		t1 = new Team();</span>
+<span class="nc" id="L28">		t2 = new Team();</span>
+
+<span class="nc" id="L30">		parsePokemonFile(t1,&quot;data/team.txt&quot;);</span>
+<span class="nc" id="L31">		parsePokemonFile(t2,&quot;data/opponentteam.txt&quot;);</span>
+
+<span class="nc" id="L33">		isBattle = true;</span>
+<span class="nc" id="L34">	}</span>
+
+	public void battle(){
+
+<span class="nc" id="L38">		Pokemon activePok1 = t1.getPokemon(0); //Grab the first Pokemon in each team</span>
+<span class="nc" id="L39">		Pokemon activePok2 = t2.getPokemon(0);</span>
+
+<span class="nc" id="L41">		System.out.println(&quot;Foe sent out &quot; + activePok2.getName() + &quot;!&quot;);</span>
+<span class="nc" id="L42">		System.out.println(&quot;Go, &quot; + activePok1.getName() + &quot;!&quot;);</span>
+
+<span class="nc bnc" id="L44" title="All 2 branches missed.">		while(isBattle){</span>
+
+<span class="nc" id="L46">			System.out.println(&quot;What will &quot; + activePok1.getName() + &quot; do?&quot;);</span>
+<span class="nc" id="L47">			System.out.println(&quot;Moves: &quot; + activePok1.movesToString());</span>
+<span class="nc" id="L48">			System.out.println(&quot;Enter move number | Press 4 to Switch&quot;);</span>
+<span class="nc" id="L49">			Scanner sc = new Scanner(System.in);</span>
+<span class="nc" id="L50">			int moveNum1 = Integer.valueOf(sc.nextLine()); //Get move decision/Decision to switch</span>
+<span class="nc" id="L51">			int moveNum2 = new Random().nextInt(4);</span>
+<span class="nc" id="L52">			boolean playerFirst = false; //controls for speed tie, without affecting Pokemon speeds</span>
+<span class="nc" id="L53">			boolean isAttacking = true; //Assume we are attacking, unless we're switching</span>
+
+<span class="nc bnc" id="L55" title="All 2 branches missed.">			if(moveNum1 == 4){ //if switching out</span>
+<span class="nc" id="L56">				isAttacking = false; //Not attacking</span>
+<span class="nc" id="L57">				System.out.println(&quot;Select a new Pokemon&quot;);</span>
+<span class="nc" id="L58">				System.out.println(t1.toString());</span>
+<span class="nc" id="L59">				int pokeNum = Integer.valueOf(sc.nextLine()); //Grab Pokemon</span>
+<span class="nc" id="L60">				boolean isSamePokemon = t1.getPokemon(pokeNum).equals(activePok1); //check if same Pokemon</span>
+<span class="nc bnc" id="L61" title="All 6 branches missed.">				while(t1.getPokemon(pokeNum).getState() == 0 || pokeNum &gt; 5 || isSamePokemon){ //If fainted or same</span>
+<span class="nc bnc" id="L62" title="All 2 branches missed.">					if(isSamePokemon){ //If it's the same</span>
+<span class="nc" id="L63">						System.out.println(t1.getPokemon(pokeNum).getName() + &quot; is already in battle!&quot;);</span>
+<span class="nc" id="L64">						pokeNum = Integer.valueOf(sc.nextLine());</span>
+<span class="nc" id="L65">						isSamePokemon = t1.getPokemon(pokeNum).equals(activePok1); //check again for next while cycle</span>
+					}else{ //else if it's fainted,
+<span class="nc" id="L67">						System.out.println(t1.getPokemon(pokeNum).getName() + &quot; is unable to battle!&quot;);</span>
+<span class="nc" id="L68">						pokeNum = Integer.valueOf(sc.nextLine()); //grab new Pokemon</span>
+					}
+
+				}
+<span class="nc" id="L72">				activePok1 = t1.getPokemon(pokeNum); //Finally, switch in valid Pokemon</span>
+<span class="nc" id="L73">				System.out.println(&quot;Go, &quot; + activePok1.getName() + &quot;!&quot;);</span>
+<span class="nc" id="L74">				activePok1.setCurrentHP(activePok1.getCurrentHP() - battleDamage(activePok2,moveNum2,activePok1)); //Get hit by opponent</span>
+<span class="nc" id="L75">				activePok1.checkState(); //Check if fainted</span>
+			}
+
+<span class="nc bnc" id="L78" title="All 2 branches missed.">			if(isAttacking){ //If we are attacking,</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">			if(activePok1.getCurrentSpe() == activePok2.getCurrentSpe()){ //If speed tie,</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">				if(new Random().nextInt(2) == 0){ //Random decide who goes first</span>
+<span class="nc" id="L81">					playerFirst = true;</span>
+				}else{
+
+				}
+			}
+
+<span class="nc bnc" id="L87" title="All 4 branches missed.">			if(activePok1.getCurrentSpe() &gt; activePok2.getCurrentSpe() || playerFirst == true){ //If Pokemon1 is faster</span>
+
+<span class="nc" id="L89">				activePok2.setCurrentHP(activePok2.getCurrentHP() - battleDamage(activePok1,moveNum1,activePok2)); //P1 attacks!</span>
+<span class="nc" id="L90">				activePok2.checkState(); //Check if fainted, or still active</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">				if(activePok2.getState() == 1){ //if still active</span>
+<span class="nc" id="L92">					activePok1.setCurrentHP(activePok1.getCurrentHP() - battleDamage(activePok2,moveNum2,activePok1)); //P2 attacks!</span>
+<span class="nc" id="L93">					activePok1.checkState(); //Check if fainted, or still active</span>
+				}
+			}else{ //activePok1.getCurrentSpe() &lt; activePok2.getCurrentSpe() || playerFirst == false
+
+<span class="nc" id="L97">				activePok1.setCurrentHP(activePok1.getCurrentHP() - battleDamage(activePok2,moveNum2,activePok1));</span>
+<span class="nc" id="L98">				activePok1.checkState();</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">				if(activePok1.getState() == 1){</span>
+<span class="nc" id="L100">					activePok2.setCurrentHP(activePok2.getCurrentHP() - battleDamage(activePok1,moveNum1,activePok2));</span>
+<span class="nc" id="L101">					activePok2.checkState();</span>
+				}
+			}
+			}//if isAttacking end bracket
+
+
+<span class="nc bnc" id="L107" title="All 4 branches missed.">			if(activePok1.getState() == 0 &amp;&amp; !t1.isFaintedTeam()){ //if active Pokemon is knocked out, and Pokemon left</span>
+<span class="nc" id="L108">				System.out.println(&quot;Select a new Pokemon, by number&quot;); //Can switch to new Poke!</span>
+<span class="nc" id="L109">				System.out.println(t1.toString());</span>
+<span class="nc" id="L110">				int pokeNum = Integer.valueOf(sc.nextLine());</span>
+<span class="nc bnc" id="L111" title="All 4 branches missed.">				while(t1.getPokemon(pokeNum).getState() == 0 || pokeNum &gt; 5){ //While not fainted or over the boundaries,</span>
+<span class="nc" id="L112">					System.out.println(t1.getPokemon(pokeNum).getName() + &quot; is unable to battle!&quot;);</span>
+<span class="nc" id="L113">					pokeNum = Integer.valueOf(sc.nextLine());</span>
+				}
+<span class="nc" id="L115">				activePok1 = t1.getPokemon(pokeNum); //Switch Pokemon in.</span>
+<span class="nc" id="L116">				System.out.println(&quot;Go, &quot; + activePok1.getName() + &quot;!&quot;);</span>
+			}
+
+<span class="nc bnc" id="L119" title="All 4 branches missed.">			if(activePok2.getState() == 0 &amp;&amp; !t2.isFaintedTeam()){ //Same for above, simply inversed for opponent</span>
+<span class="nc" id="L120">				System.out.println(&quot;Foe is thinking over his next Pokemon...&quot;);</span>
+<span class="nc" id="L121">				int pokeNum = new Random().nextInt(6);</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">				while(t2.getPokemon(pokeNum).getState() == 0){</span>
+<span class="nc" id="L123">					System.out.println(t2.getPokemon(pokeNum).getName() + &quot; is unable to battle!&quot;);</span>
+<span class="nc" id="L124">					pokeNum = new Random().nextInt(6);</span>
+				}
+<span class="nc" id="L126">				activePok2 = t2.getPokemon(pokeNum);</span>
+<span class="nc" id="L127">				System.out.println(&quot;Foe sent out &quot; + activePok2.getName() + &quot;!&quot;);</span>
+			}
+
+
+
+<span class="nc bnc" id="L132" title="All 2 branches missed.">			if(t1.isFaintedTeam()){ //If all team fainted,</span>
+<span class="nc" id="L133">				isBattle = false;</span>
+<span class="nc" id="L134">				System.out.println(&quot;Player whited out!&quot;); //RIP in pepperoni</span>
+			}
+
+<span class="nc bnc" id="L137" title="All 2 branches missed.">			if(t2.isFaintedTeam()){</span>
+<span class="nc" id="L138">				isBattle = false;</span>
+<span class="nc" id="L139">				System.out.println(&quot;Player defeated Trainer!&quot;); //gg no re</span>
+			}
+
+<span class="nc" id="L142">		}</span>
+
+
+<span class="nc" id="L145">	}</span>
+
+	public void parsePokemonFile(Team t, String filePath){
+
+		try {
+<span class="nc" id="L150">			BufferedReader reader = new BufferedReader(new FileReader(filePath));</span>
+<span class="nc" id="L151">			String currLine = &quot;&quot;;</span>
+			//currLine = reader.readLine();
+			//while((currLine = reader.readLine()) != null){
+<span class="nc bnc" id="L154" title="All 2 branches missed.">			for(int j = 0; j &lt; 6; j++){ //Hardcoding for 6 Pokemon being read</span>
+
+<span class="nc" id="L156">				currLine = reader.readLine(); //is typically above while statement</span>
+
+<span class="nc" id="L158">				int pos = currLine.indexOf('@'); //First line, look for @</span>
+<span class="nc" id="L159">				String name = currLine.substring(0,pos).trim(); //parse for name</span>
+<span class="nc" id="L160">				String item = currLine.substring(pos+1).trim(); //parse for item</span>
+<span class="nc" id="L161">				int[] EVs = new int[6];</span>
+<span class="nc" id="L162">				currLine = reader.readLine(); //Next line, &quot;Ability: ______&quot;</span>
+<span class="nc" id="L163">				pos = currLine.indexOf(':');</span>
+<span class="nc" id="L164">				String ability = currLine.substring(pos+1).trim(); //Parse ability from &quot;:&quot; on</span>
+<span class="nc" id="L165">				currLine = reader.readLine(); //Next line, EVs</span>
+<span class="nc" id="L166">				currLine = currLine.substring(currLine.indexOf(':')+1); //Get string after EVs:</span>
+<span class="nc bnc" id="L167" title="All 2 branches missed.">				while(currLine.indexOf('/') != -1){ //while there are &quot;/&quot;s</span>
+
+<span class="nc" id="L169">					String temp = currLine.substring(0,currLine.trim().indexOf('/')).trim(); //Parse string with EV and typeEV</span>
+<span class="nc" id="L170">					int EV = Integer.valueOf(temp.substring(0,temp.indexOf(' ')).trim());</span>
+<span class="nc" id="L171">					String typeEV = temp.substring(temp.indexOf(' ')).trim();</span>
+					//System.out.println(typeEV + &quot; eee&quot;);
+<span class="nc bnc" id="L173" title="All 2 branches missed.">					if(typeEV.equals(&quot;HP&quot;)){EVs[0] = EV;}</span>
+<span class="nc bnc" id="L174" title="All 2 branches missed.">					if(typeEV.equals(&quot;Atk&quot;)){EVs[1] = EV;}</span>
+<span class="nc bnc" id="L175" title="All 2 branches missed.">					if(typeEV.equals(&quot;Def&quot;)){EVs[2] = EV;}</span>
+<span class="nc bnc" id="L176" title="All 2 branches missed.">					if(typeEV.equals(&quot;SpA&quot;)){EVs[3] = EV;}</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">					if(typeEV.equals(&quot;SpD&quot;)){EVs[4] = EV;}</span>
+<span class="nc bnc" id="L178" title="All 2 branches missed.">					if(typeEV.equals(&quot;Spe&quot;)){EVs[5] = EV;}</span>
+
+<span class="nc" id="L180">					currLine = currLine.substring(currLine.indexOf('/')+1); //Cut off already parsed part of EV String</span>
+<span class="nc" id="L181">				}</span>
+
+				//Parse last section, which has no &quot;/&quot;
+
+//				String temp = currLine.substring(0,currLine.indexOf('/')).trim();
+				//System.out.println((currLine.trim()).indexOf(' '));
+				//System.out.println(currLine.trim().substring((currLine.trim()).indexOf(' ')));
+<span class="nc" id="L188">				int EV = Integer.valueOf(currLine.trim().substring(0,currLine.trim().indexOf(' ')).trim());</span>
+				//System.out.println(&quot;EV: &quot; + EV);
+<span class="nc" id="L190">				String typeEV = currLine.trim().substring(currLine.trim().indexOf(' ')).trim();</span>
+				//System.out.println(typeEV);
+<span class="nc bnc" id="L192" title="All 2 branches missed.">				if(typeEV.equals(&quot;HP&quot;)){EVs[0] = EV;}</span>
+<span class="nc bnc" id="L193" title="All 2 branches missed.">				if(typeEV.equals(&quot;Atk&quot;)){EVs[1] = EV;}</span>
+<span class="nc bnc" id="L194" title="All 2 branches missed.">				if(typeEV.equals(&quot;Def&quot;)){EVs[2] = EV;}</span>
+<span class="nc bnc" id="L195" title="All 2 branches missed.">				if(typeEV.equals(&quot;SpA&quot;)){EVs[3] = EV;}</span>
+<span class="nc bnc" id="L196" title="All 2 branches missed.">				if(typeEV.equals(&quot;SpD&quot;)){EVs[4] = EV;}</span>
+<span class="nc bnc" id="L197" title="All 2 branches missed.">				if(typeEV.equals(&quot;Spe&quot;)){EVs[5] = EV;}</span>
+
+<span class="nc" id="L199">				currLine = reader.readLine();</span>
+<span class="nc" id="L200">				String nature = currLine.substring(0,currLine.indexOf(&quot; &quot;)).trim();</span>
+
+<span class="nc" id="L202">				String[] moves = new String[4];</span>
+<span class="nc bnc" id="L203" title="All 2 branches missed.">				for(int i = 0; i &lt; moves.length; i++){ //Parse moves from after &quot;-&quot;</span>
+<span class="nc" id="L204">					currLine = reader.readLine();</span>
+<span class="nc" id="L205">					moves[i] = currLine.substring(currLine.indexOf('-')+1).trim();</span>
+				}
+				//System.out.println(name + &quot; &quot; + nature + EVs[0] + EVs[1] + moves[0] + &quot; &quot; + moves[1] + &quot; &quot; + moves[2] + &quot; &quot; + moves[3]);
+<span class="nc" id="L208">				t.addPokemon(new Pokemon(name, nature, EVs[0], EVs[1], EVs[2], EVs[3], EVs[4], EVs[5], moves));</span>
+				//System.out.println(t1.getPokemon(j).getName() + &quot; &quot; + t.getPokemon(j).movesToString());
+<span class="nc" id="L210">				t.getPokemon(j).statsToString();</span>
+
+<span class="nc" id="L212">				currLine = reader.readLine();</span>
+
+			}
+
+<span class="nc" id="L216">		} catch (IOException e) {</span>
+			// TODO Auto-generated catch block
+<span class="nc" id="L218">			e.printStackTrace();</span>
+<span class="nc" id="L219">		}</span>
+<span class="nc" id="L220">	}</span>
+
+	public void parseFile(){
+
+		try {
+<span class="nc" id="L225">			BufferedReader reader = new BufferedReader(new FileReader(&quot;data/moves.txt&quot;));</span>
+<span class="nc" id="L226">			String currLine = null;</span>
+<span class="nc" id="L227">			PrintWriter output = new PrintWriter(&quot;data/outputmoves.txt&quot;);</span>
+<span class="nc" id="L228">			boolean hasPassed = false;</span>
+<span class="nc" id="L229">			boolean isFunction = false;</span>
+<span class="nc" id="L230">			int cnt = 0;</span>
+
+<span class="nc bnc" id="L232" title="All 2 branches missed.">			while ((currLine = reader.readLine()) != null){</span>
+
+
+<span class="nc" id="L235">				String pattern = &quot;\&quot;\\w+\&quot;:&quot;; //In case we are out of a function...</span>
+<span class="nc" id="L236">				Pattern p = Pattern.compile(pattern);</span>
+<span class="nc" id="L237">				Matcher m = p.matcher(currLine);</span>
+
+<span class="nc bnc" id="L239" title="All 2 branches missed.">				if(m.find()){ //check to break</span>
+					//output.println(currLine);
+<span class="nc" id="L241">					isFunction = false;</span>
+				}
+
+
+<span class="nc bnc" id="L245" title="All 2 branches missed.">				if(isFunction == false){</span>
+<span class="nc" id="L246">				pattern = &quot;\\w+:&quot;; //looks for naked JSON objects</span>
+<span class="nc" id="L247">				p = Pattern.compile(pattern);</span>
+<span class="nc" id="L248">				m = p.matcher(currLine);</span>
+
+				//System.out.println(currLine);
+
+<span class="nc bnc" id="L252" title="All 2 branches missed.">				while(m.find()){</span>
+
+
+<span class="nc" id="L255">					int s1 = m.start();</span>
+<span class="nc" id="L256">					int s2 = m.end() - 1;</span>
+<span class="nc" id="L257">					String str = currLine.substring(s1,s2);</span>
+<span class="nc" id="L258">					String begStr = currLine.substring(0,s1);</span>
+<span class="nc" id="L259">					String endStr = currLine.substring(s2);</span>
+<span class="nc" id="L260">					str = &quot;\&quot;&quot; + str + &quot;\&quot;&quot;;</span>
+<span class="nc" id="L261">					currLine = begStr + str + endStr;</span>
+					//output.println(begStr + str + endStr);
+					//output.println(s1 + &quot;  &quot; + s2);
+<span class="nc" id="L264">					m = p.matcher(currLine);</span>
+<span class="nc" id="L265">				}</span>
+
+				//cnt++;
+
+				//if(cnt &lt; 18){
+
+<span class="nc" id="L271">				pattern = &quot;\\'\\w+\\'&quot;; //this looks for single-quoted stuff</span>
+<span class="nc" id="L272">				p = Pattern.compile(pattern);</span>
+<span class="nc" id="L273">				m = p.matcher(currLine);</span>
+
+<span class="nc bnc" id="L275" title="All 2 branches missed.">				if(m.find()){ //if found,</span>
+<span class="nc" id="L276">					int s1 = m.start() +1;</span>
+<span class="nc" id="L277">					int s2 = m.end() - 1;</span>
+<span class="nc" id="L278">					String str = currLine.substring(s1,s2);</span>
+<span class="nc" id="L279">					String begStr = currLine.substring(0,s1-1);</span>
+<span class="nc" id="L280">					String endStr = currLine.substring(s2+1);</span>
+<span class="nc" id="L281">					str = &quot;\&quot;&quot; + str + &quot;\&quot;&quot;;</span>
+
+<span class="nc" id="L283">					currLine = begStr + str + endStr; //cut it out from line, replace it with null</span>
+<span class="nc" id="L284">					output.println(currLine);//push to output</span>
+				}
+
+<span class="nc" id="L287">				pattern = &quot;\\/\\/&quot;; //this looks for double-slash commented out stuff</span>
+<span class="nc" id="L288">				p = Pattern.compile(pattern);</span>
+<span class="nc" id="L289">				m = p.matcher(currLine);</span>
+
+<span class="nc bnc" id="L291" title="All 2 branches missed.">				if(m.find()){ //if found,</span>
+<span class="nc" id="L292">					int s1 = m.start();</span>
+
+<span class="nc" id="L294">					String begStr = currLine.substring(0,m.start());</span>
+<span class="nc" id="L295">					currLine = begStr;</span>
+				}
+
+<span class="nc" id="L298">				pattern = &quot;function&quot;; //this looks for &quot;function&quot;</span>
+<span class="nc" id="L299">				p = Pattern.compile(pattern);</span>
+<span class="nc" id="L300">				m = p.matcher(currLine);</span>
+
+<span class="nc bnc" id="L302" title="All 2 branches missed.">				if(m.find()){ //if found,</span>
+<span class="nc" id="L303">					String begStr = currLine.substring(0,m.start());</span>
+<span class="nc" id="L304">					currLine = begStr + &quot;null,&quot;; //cut it out from line, replace it with null</span>
+<span class="nc" id="L305">					output.println(currLine);//push to output</span>
+<span class="nc" id="L306">					isFunction = true;</span>
+				}
+
+<span class="nc" id="L309">				pattern = &quot;\&quot;on\\w+\&quot;:&quot;; //this looks for &quot;on&quot;</span>
+<span class="nc" id="L310">				p = Pattern.compile(pattern);</span>
+<span class="nc" id="L311">				m = p.matcher(currLine);</span>
+
+<span class="nc bnc" id="L313" title="All 2 branches missed.">				if(m.find()){ //if &quot;on&quot; is found</span>
+
+<span class="nc" id="L315">					String begStr = currLine.substring(0,m.end()+1);</span>
+<span class="nc" id="L316">					currLine = begStr + &quot;null,&quot;; //cut it out from line, replace it with null</span>
+<span class="nc" id="L317">					output.println(currLine);//push to output</span>
+
+<span class="nc" id="L319">					isFunction = true;</span>
+<span class="nc" id="L320">					System.out.println(isFunction);</span>
+				}
+				}
+
+
+<span class="nc bnc" id="L325" title="All 2 branches missed.">				if(isFunction == false){ //if we're in a function, don't print anything</span>
+<span class="nc" id="L326">					output.println(currLine);//}</span>
+				}
+
+<span class="nc" id="L329">			}</span>
+<span class="nc" id="L330">			output.close();</span>
+<span class="nc" id="L331">			reader.close();</span>
+
+<span class="nc" id="L333">		} catch (IOException e) {</span>
+			// TODO Auto-generated catch block
+<span class="nc" id="L335">			e.printStackTrace();</span>
+<span class="nc" id="L336">		}</span>
+
+
+
+
+<span class="nc" id="L341">	}</span>
+
+
+
+	public int battleDamage(Pokemon p1, int moveNum, Pokemon p2){
+
+
+//		System.out.println(p1.getLevel() + &quot; &quot; + p1.getCurrentSpAtk() + &quot; &quot; + p2.getCurrentSpDef());
+//		int damage = (int) ((((2 * p1.getLevel() + 10)/(double) 250) * ((double) p1.getCurrentSpAtk()/p2.getCurrentSpDef()) * 120 + 2) * 1.5);
+//
+//		System.out.println(&quot;Fire Blast does &quot; + damage + &quot; dmg to &quot; + p2.getName() + &quot; (type effectiveness not implemented.)&quot;);
+
+<span class="fc" id="L353">		int damage = 0;</span>
+
+<span class="fc" id="L355">		Move attack = p1.getMove(moveNum);</span>
+
+<span class="fc" id="L357">		double STAB = 1;</span>
+
+<span class="fc bfc" id="L359" title="All 2 branches covered.">		for(String t : p1.getType()){</span>
+<span class="fc bfc" id="L360" title="All 2 branches covered.">			if(t.equals(attack.getType())){ //If Pokemon type and move type are the same,</span>
+<span class="fc" id="L361">				STAB = 1.5; //give STAB</span>
+			}
+		}
+
+<span class="fc" id="L365">		double typeEff = checkTypeEffectiveness(p2.getType(), attack.getType());</span>
+<span class="fc" id="L366">		double rand = ((double) (new Random().nextInt(16) + 85))/100;</span>
+
+<span class="fc bfc" id="L368" title="All 2 branches covered.">		if(attack.getCategory().equals(&quot;Physical&quot;)){</span>
+<span class="fc" id="L369">			damage = (int) (((int)(((2 * p1.getLevel() + 10)/(double) 250) * ((double) p1.getCurrentAtk()/p2.getCurrentDef()) * attack.getBasePower() + 2)) * STAB * typeEff * rand);</span>
+<span class="fc" id="L370">			System.out.println(attack.getName() + &quot; does &quot; + damage + &quot; dmg to &quot; + p2.getName() + &quot; (type effectiveness implmented!)&quot;);</span>
+			//(int) cast because rounding occurs before multipliers, according to Pokemon Showdown calc
+		}
+<span class="fc bfc" id="L373" title="All 2 branches covered.">		if(attack.getCategory().equals(&quot;Special&quot;)){</span>
+<span class="fc" id="L374">			damage = (int) (((int)(((2 * p1.getLevel() + 10)/(double) 250) * ((double) p1.getCurrentSpA()/p2.getCurrentSpD()) * attack.getBasePower() + 2)) * STAB * typeEff * rand);</span>
+<span class="fc" id="L375">			System.out.println(attack.getName() + &quot; does &quot; + damage + &quot; dmg to &quot; + p2.getName() + &quot; (type effectiveness implmented!)&quot;);</span>
+
+		}
+
+<span class="fc bfc" id="L379" title="All 2 branches covered.">		if(typeEff == 0){</span>
+<span class="fc" id="L380">			System.out.println(&quot;It doesn't affect &quot; + p2.getName() + &quot;...&quot;);</span>
+		}
+<span class="fc bfc" id="L382" title="All 2 branches covered.">		if(typeEff == 0.5){</span>
+<span class="fc" id="L383">			System.out.println(&quot;It's not very effective...&quot;);</span>
+		}
+<span class="fc bfc" id="L385" title="All 2 branches covered.">		if(typeEff == 1){</span>
+
+		}
+<span class="fc bfc" id="L388" title="All 2 branches covered.">		if(typeEff == 2){</span>
+<span class="fc" id="L389">			System.out.println(&quot;It's super effective!&quot;);</span>
+		}
+<span class="pc bpc" id="L391" title="1 of 2 branches missed.">		if(typeEff == 4){</span>
+<span class="nc" id="L392">			System.out.println(&quot;It's ultra effective!&quot;);</span>
+		}
+
+<span class="fc" id="L395">		return damage;</span>
+
+		//STAB, type effectiveness, implemented. Critical, Random, and held items, abilities, and weather not included.
+	}
+
+	public double checkTypeEffectiveness(String[] pokeType, String moveType){
+
+<span class="fc" id="L402">		double typeEff = 1;</span>
+
+		try {
+
+<span class="fc" id="L406">			JSONParser parser = new JSONParser();</span>
+<span class="fc" id="L407">			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(&quot;data/typechart.txt&quot;));</span>
+
+<span class="fc bfc" id="L409" title="All 2 branches covered.">			for(String type : pokeType){</span>
+
+<span class="fc" id="L411">				int val = (int) (long) ((JSONObject)((JSONObject) jsonObject.get(type)).get(&quot;damageTaken&quot;)).get(moveType);</span>
+
+<span class="fc bfc" id="L413" title="All 2 branches covered.">				if(val == 0){</span>
+
+				}
+<span class="fc bfc" id="L416" title="All 2 branches covered.">				if(val == 1){</span>
+<span class="fc" id="L417">					typeEff = typeEff * 2;</span>
+				}
+<span class="fc bfc" id="L419" title="All 2 branches covered.">				if(val == 2){</span>
+<span class="fc" id="L420">					typeEff = typeEff * 0.5;</span>
+				}
+<span class="fc bfc" id="L422" title="All 2 branches covered.">				if(val == 3){</span>
+<span class="fc" id="L423">					typeEff = typeEff * 0;</span>
+				}
+
+			}
+
+
+<span class="nc" id="L429">		} catch (IOException | ParseException e) {</span>
+			// TODO Auto-generated catch block
+<span class="nc" id="L431">			e.printStackTrace();</span>
+<span class="fc" id="L432">		}</span>
+
+<span class="fc" id="L434">		return typeEff;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
