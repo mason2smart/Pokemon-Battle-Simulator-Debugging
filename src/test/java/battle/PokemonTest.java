@@ -629,4 +629,20 @@ public class PokemonTest {
         assertEquals(57, magikarp.getSpD());
         assertEquals(177, magikarp.getSpe());
     }
+
+    // This one method appears to just be a typo but for the sake of having highest possible branch coverage I'm going
+    // to test it!
+    @Test
+    public void testGetSpeBad() {
+        defaultPikachu.getSpe(1);
+        assertEquals(1, defaultPikachu.getSpe());
+    }
+
+    // This method probably relates to a half-implemented feature--again, for the sake of branch coverage, I'm going to
+    // test it, but since strMoves is private with no accessors, I can only test that it doesn't throw an exception.
+    @Test
+    public void testSetStrMovesSucceeds() {
+        String[] strMoves = {};
+        defaultPikachu.setStrMoves(strMoves);
+    }
 }
