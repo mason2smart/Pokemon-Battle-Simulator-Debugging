@@ -442,19 +442,19 @@ public class PokemonTest {
 
     /*@Test
     public void testBoostAtkOutOfRangeNegative() {
-        assertThrows(InvalidArgumentException.class, () -> defaultPikachu.boostAtk(-7));
+        assertThrows(IllegalArgumentException.class, () -> defaultPikachu.boostAtk(-7));
     }
 
     @Test
     public void testBoostAtkOutOfRangePositive() {
-        assertThrows(InvalidArgumentException.class, () -> defaultPikachu.boostAtk(7));
+        assertThrows(IllegalArgumentException.class, () -> defaultPikachu.boostAtk(7));
     }
 
     // All Pokemon have between 1 and 4 moves.
     @Test
     public void testSetNoMoves() {
         String[] moves = {};
-        assertThrows(InvalidArgumentException.class, () -> defaultPikachu.setMoves(moves));
+        assertThrows(IllegalArgumentException.class, () -> defaultPikachu.setMoves(moves));
     }
 */
     @Test
@@ -477,7 +477,7 @@ public class PokemonTest {
     @Test
     public void testSetFiveMoves() {
         String[] moves = {"Tackle", "Growl", "Thunderbolt", "Quick Attack", "Splash"};
-        assertThrows(InvalidArgumentException.class, () -> defaultPikachu.setMoves(moves));
+        assertThrows(IllegalArgumentException.class, () -> defaultPikachu.setMoves(moves));
     }
 */
     @Test
