@@ -1,6 +1,5 @@
 package battle;
 
-import battle.Move;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
