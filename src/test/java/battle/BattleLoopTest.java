@@ -1,3 +1,5 @@
+package battle;
+
 import battle.BattleLoop;
 import battle.Pokemon;
 import org.junit.jupiter.api.BeforeEach;
