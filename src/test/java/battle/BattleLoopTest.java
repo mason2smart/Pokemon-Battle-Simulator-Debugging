@@ -3,6 +3,7 @@ package battle;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -136,4 +137,32 @@ class BattleLoopTest {
     }
 
     // TODO: Add tests for parseFile, parsePokemonFile, battle, and startBattle
+
+    // parseFile, parsePokemonFile, battle, and startBattle all return void and, at most, print stuff out, so we aren't
+    // able to test them very thoroughly. However, we can still achieve ok branch coverage on most.
+    @Test
+    public void testStartBattleSucceeds() {
+        loop.startBattle();
+    }
+
+    @Test
+    public void testParseFileSucceeds() {
+        loop.parseFile();
+    }
+
+    @Test
+    public void testParsePokemonFile() {
+        Team t = new Team();
+        String expected = "(0) Azumarill (1) Bisharp (2) Dragonite (3) Garchomp (4) Landorus-Therian (5) Charizard-Mega-Y";
+        loop.parsePokemonFile(t, "data/team.txt");
+        assertEquals(expected, t.toString());
+    }
+
+    @Test
+    public void testParsePokemonFileTest() {
+        Team t = new Team();
+        String expected = "(0) Volcarona (1) Dragonite (2) Chandelure (3) Lucario (4) Starmie (5) Scizor";
+        loop.parsePokemonFile(t, "data/test/teamTest.txt");
+        assertEquals(expected, t.toString());
+    }
 }

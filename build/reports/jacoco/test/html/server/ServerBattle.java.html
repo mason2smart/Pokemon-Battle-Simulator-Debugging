@@ -38,9 +38,9 @@ public class ServerBattle {
 	private PrintWriter writer1;
 	private PrintWriter writer2;
 
-<span class="nc" id="L41">	public ServerBattle(){</span>
-<span class="nc" id="L42">		sc = new Scanner(System.in);</span>
-<span class="nc" id="L43">	}</span>
+<span class="fc" id="L41">	public ServerBattle(){</span>
+<span class="fc" id="L42">		sc = new Scanner(System.in);</span>
+<span class="fc" id="L43">	}</span>
 
 	public void checkConnections(){
 
@@ -371,123 +371,123 @@ public class ServerBattle {
 	public void parseFile(){
 
 		try {
-<span class="nc" id="L374">			BufferedReader reader = new BufferedReader(new FileReader(&quot;data/moves.txt&quot;));</span>
-<span class="nc" id="L375">			String currLine = null;</span>
-<span class="nc" id="L376">			PrintWriter output = new PrintWriter(&quot;data/outputmoves.txt&quot;);</span>
-<span class="nc" id="L377">			boolean hasPassed = false;</span>
-<span class="nc" id="L378">			boolean isFunction = false;</span>
-<span class="nc" id="L379">			int cnt = 0;</span>
+<span class="fc" id="L374">			BufferedReader reader = new BufferedReader(new FileReader(&quot;data/moves.txt&quot;));</span>
+<span class="fc" id="L375">			String currLine = null;</span>
+<span class="fc" id="L376">			PrintWriter output = new PrintWriter(&quot;data/outputmoves.txt&quot;);</span>
+<span class="fc" id="L377">			boolean hasPassed = false;</span>
+<span class="fc" id="L378">			boolean isFunction = false;</span>
+<span class="fc" id="L379">			int cnt = 0;</span>
 
-<span class="nc bnc" id="L381" title="All 2 branches missed.">			while ((currLine = reader.readLine()) != null){</span>
+<span class="fc bfc" id="L381" title="All 2 branches covered.">			while ((currLine = reader.readLine()) != null){</span>
 
 
-<span class="nc" id="L384">				String pattern = &quot;\&quot;\\w+\&quot;:&quot;; //In case we are out of a function...</span>
-<span class="nc" id="L385">				Pattern p = Pattern.compile(pattern);</span>
-<span class="nc" id="L386">				Matcher m = p.matcher(currLine);</span>
+<span class="fc" id="L384">				String pattern = &quot;\&quot;\\w+\&quot;:&quot;; //In case we are out of a function...</span>
+<span class="fc" id="L385">				Pattern p = Pattern.compile(pattern);</span>
+<span class="fc" id="L386">				Matcher m = p.matcher(currLine);</span>
 
-<span class="nc bnc" id="L388" title="All 2 branches missed.">				if(m.find()){ //check to break</span>
+<span class="fc bfc" id="L388" title="All 2 branches covered.">				if(m.find()){ //check to break</span>
 					//output.println(currLine);
-<span class="nc" id="L390">					isFunction = false;</span>
+<span class="fc" id="L390">					isFunction = false;</span>
 				}
 
 
-<span class="nc bnc" id="L394" title="All 2 branches missed.">				if(isFunction == false){</span>
-<span class="nc" id="L395">				pattern = &quot;\\w+:&quot;; //looks for naked JSON objects</span>
-<span class="nc" id="L396">				p = Pattern.compile(pattern);</span>
-<span class="nc" id="L397">				m = p.matcher(currLine);</span>
+<span class="fc bfc" id="L394" title="All 2 branches covered.">				if(isFunction == false){</span>
+<span class="fc" id="L395">				pattern = &quot;\\w+:&quot;; //looks for naked JSON objects</span>
+<span class="fc" id="L396">				p = Pattern.compile(pattern);</span>
+<span class="fc" id="L397">				m = p.matcher(currLine);</span>
 
 				//System.out.println(currLine);
 
-<span class="nc bnc" id="L401" title="All 2 branches missed.">				while(m.find()){</span>
+<span class="fc bfc" id="L401" title="All 2 branches covered.">				while(m.find()){</span>
 
 
-<span class="nc" id="L404">					int s1 = m.start();</span>
-<span class="nc" id="L405">					int s2 = m.end() - 1;</span>
-<span class="nc" id="L406">					String str = currLine.substring(s1,s2);</span>
-<span class="nc" id="L407">					String begStr = currLine.substring(0,s1);</span>
-<span class="nc" id="L408">					String endStr = currLine.substring(s2);</span>
-<span class="nc" id="L409">					str = &quot;\&quot;&quot; + str + &quot;\&quot;&quot;;</span>
-<span class="nc" id="L410">					currLine = begStr + str + endStr;</span>
+<span class="fc" id="L404">					int s1 = m.start();</span>
+<span class="fc" id="L405">					int s2 = m.end() - 1;</span>
+<span class="fc" id="L406">					String str = currLine.substring(s1,s2);</span>
+<span class="fc" id="L407">					String begStr = currLine.substring(0,s1);</span>
+<span class="fc" id="L408">					String endStr = currLine.substring(s2);</span>
+<span class="fc" id="L409">					str = &quot;\&quot;&quot; + str + &quot;\&quot;&quot;;</span>
+<span class="fc" id="L410">					currLine = begStr + str + endStr;</span>
 					//output.println(begStr + str + endStr);
 					//output.println(s1 + &quot;  &quot; + s2);
-<span class="nc" id="L413">					m = p.matcher(currLine);</span>
-<span class="nc" id="L414">				}</span>
+<span class="fc" id="L413">					m = p.matcher(currLine);</span>
+<span class="fc" id="L414">				}</span>
 
 				//cnt++;
 
 				//if(cnt &lt; 18){
 
-<span class="nc" id="L420">				pattern = &quot;\\'\\w+\\'&quot;; //this looks for single-quoted stuff</span>
-<span class="nc" id="L421">				p = Pattern.compile(pattern);</span>
-<span class="nc" id="L422">				m = p.matcher(currLine);</span>
+<span class="fc" id="L420">				pattern = &quot;\\'\\w+\\'&quot;; //this looks for single-quoted stuff</span>
+<span class="fc" id="L421">				p = Pattern.compile(pattern);</span>
+<span class="fc" id="L422">				m = p.matcher(currLine);</span>
 
-<span class="nc bnc" id="L424" title="All 2 branches missed.">				if(m.find()){ //if found,</span>
-<span class="nc" id="L425">					int s1 = m.start() +1;</span>
-<span class="nc" id="L426">					int s2 = m.end() - 1;</span>
-<span class="nc" id="L427">					String str = currLine.substring(s1,s2);</span>
-<span class="nc" id="L428">					String begStr = currLine.substring(0,s1-1);</span>
-<span class="nc" id="L429">					String endStr = currLine.substring(s2+1);</span>
-<span class="nc" id="L430">					str = &quot;\&quot;&quot; + str + &quot;\&quot;&quot;;</span>
+<span class="fc bfc" id="L424" title="All 2 branches covered.">				if(m.find()){ //if found,</span>
+<span class="fc" id="L425">					int s1 = m.start() +1;</span>
+<span class="fc" id="L426">					int s2 = m.end() - 1;</span>
+<span class="fc" id="L427">					String str = currLine.substring(s1,s2);</span>
+<span class="fc" id="L428">					String begStr = currLine.substring(0,s1-1);</span>
+<span class="fc" id="L429">					String endStr = currLine.substring(s2+1);</span>
+<span class="fc" id="L430">					str = &quot;\&quot;&quot; + str + &quot;\&quot;&quot;;</span>
 
-<span class="nc" id="L432">					currLine = begStr + str + endStr; //cut it out from line, replace it with null</span>
-<span class="nc" id="L433">					output.println(currLine);//push to output</span>
+<span class="fc" id="L432">					currLine = begStr + str + endStr; //cut it out from line, replace it with null</span>
+<span class="fc" id="L433">					output.println(currLine);//push to output</span>
 				}
 
-<span class="nc" id="L436">				pattern = &quot;\\/\\/&quot;; //this looks for double-slash commented out stuff</span>
-<span class="nc" id="L437">				p = Pattern.compile(pattern);</span>
-<span class="nc" id="L438">				m = p.matcher(currLine);</span>
+<span class="fc" id="L436">				pattern = &quot;\\/\\/&quot;; //this looks for double-slash commented out stuff</span>
+<span class="fc" id="L437">				p = Pattern.compile(pattern);</span>
+<span class="fc" id="L438">				m = p.matcher(currLine);</span>
 
-<span class="nc bnc" id="L440" title="All 2 branches missed.">				if(m.find()){ //if found,</span>
-<span class="nc" id="L441">					int s1 = m.start();</span>
+<span class="fc bfc" id="L440" title="All 2 branches covered.">				if(m.find()){ //if found,</span>
+<span class="fc" id="L441">					int s1 = m.start();</span>
 
-<span class="nc" id="L443">					String begStr = currLine.substring(0,m.start());</span>
-<span class="nc" id="L444">					currLine = begStr;</span>
+<span class="fc" id="L443">					String begStr = currLine.substring(0,m.start());</span>
+<span class="fc" id="L444">					currLine = begStr;</span>
 				}
 
-<span class="nc" id="L447">				pattern = &quot;function&quot;; //this looks for &quot;function&quot;</span>
-<span class="nc" id="L448">				p = Pattern.compile(pattern);</span>
-<span class="nc" id="L449">				m = p.matcher(currLine);</span>
+<span class="fc" id="L447">				pattern = &quot;function&quot;; //this looks for &quot;function&quot;</span>
+<span class="fc" id="L448">				p = Pattern.compile(pattern);</span>
+<span class="fc" id="L449">				m = p.matcher(currLine);</span>
 
-<span class="nc bnc" id="L451" title="All 2 branches missed.">				if(m.find()){ //if found,</span>
-<span class="nc" id="L452">					String begStr = currLine.substring(0,m.start());</span>
-<span class="nc" id="L453">					currLine = begStr + &quot;null,&quot;; //cut it out from line, replace it with null</span>
-<span class="nc" id="L454">					output.println(currLine);//push to output</span>
-<span class="nc" id="L455">					isFunction = true;</span>
+<span class="fc bfc" id="L451" title="All 2 branches covered.">				if(m.find()){ //if found,</span>
+<span class="fc" id="L452">					String begStr = currLine.substring(0,m.start());</span>
+<span class="fc" id="L453">					currLine = begStr + &quot;null,&quot;; //cut it out from line, replace it with null</span>
+<span class="fc" id="L454">					output.println(currLine);//push to output</span>
+<span class="fc" id="L455">					isFunction = true;</span>
 				}
 
-<span class="nc" id="L458">				pattern = &quot;\&quot;on\\w+\&quot;:&quot;; //this looks for &quot;on&quot;</span>
-<span class="nc" id="L459">				p = Pattern.compile(pattern);</span>
-<span class="nc" id="L460">				m = p.matcher(currLine);</span>
+<span class="fc" id="L458">				pattern = &quot;\&quot;on\\w+\&quot;:&quot;; //this looks for &quot;on&quot;</span>
+<span class="fc" id="L459">				p = Pattern.compile(pattern);</span>
+<span class="fc" id="L460">				m = p.matcher(currLine);</span>
 
-<span class="nc bnc" id="L462" title="All 2 branches missed.">				if(m.find()){ //if &quot;on&quot; is found</span>
+<span class="fc bfc" id="L462" title="All 2 branches covered.">				if(m.find()){ //if &quot;on&quot; is found</span>
 
-<span class="nc" id="L464">					String begStr = currLine.substring(0,m.end()+1);</span>
-<span class="nc" id="L465">					currLine = begStr + &quot;null,&quot;; //cut it out from line, replace it with null</span>
-<span class="nc" id="L466">					output.println(currLine);//push to output</span>
+<span class="fc" id="L464">					String begStr = currLine.substring(0,m.end()+1);</span>
+<span class="fc" id="L465">					currLine = begStr + &quot;null,&quot;; //cut it out from line, replace it with null</span>
+<span class="fc" id="L466">					output.println(currLine);//push to output</span>
 
-<span class="nc" id="L468">					isFunction = true;</span>
-<span class="nc" id="L469">					System.out.println(isFunction);</span>
+<span class="fc" id="L468">					isFunction = true;</span>
+<span class="fc" id="L469">					System.out.println(isFunction);</span>
 				}
 				}
 
 
-<span class="nc bnc" id="L474" title="All 2 branches missed.">				if(isFunction == false){ //if we're in a function, don't print anything</span>
-<span class="nc" id="L475">					output.println(currLine);//}</span>
+<span class="fc bfc" id="L474" title="All 2 branches covered.">				if(isFunction == false){ //if we're in a function, don't print anything</span>
+<span class="fc" id="L475">					output.println(currLine);//}</span>
 				}
 
-<span class="nc" id="L478">			}</span>
-<span class="nc" id="L479">			output.close();</span>
-<span class="nc" id="L480">			reader.close();</span>
+<span class="fc" id="L478">			}</span>
+<span class="fc" id="L479">			output.close();</span>
+<span class="fc" id="L480">			reader.close();</span>
 
 <span class="nc" id="L482">		} catch (IOException e) {</span>
 			// TODO Auto-generated catch block
 <span class="nc" id="L484">			e.printStackTrace();</span>
-<span class="nc" id="L485">		}</span>
+<span class="fc" id="L485">		}</span>
 
 
 
 
-<span class="nc" id="L490">	}</span>
+<span class="fc" id="L490">	}</span>
 
 
 
@@ -499,7 +499,7 @@ public class ServerBattle {
 //
 //		System.out.println(&quot;Fire Blast does &quot; + damage + &quot; dmg to &quot; + p2.getName() + &quot; (type effectiveness not implemented.)&quot;);
 
-<span class="nc" id="L502">		int damage = 0;</span>
+<span class="fc" id="L502">		int damage = 0;</span>
 
 <span class="nc" id="L504">		Move attack = p1.getMove(moveNum);</span>
 
@@ -567,14 +567,14 @@ public class ServerBattle {
 
 	public double checkTypeEffectiveness(String[] pokeType, String moveType){
 
-<span class="nc" id="L570">		double typeEff = 1;</span>
+<span class="fc" id="L570">		double typeEff = 1;</span>
 
 		try {
 
-<span class="nc" id="L574">			JSONParser parser = new JSONParser();</span>
-<span class="nc" id="L575">			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(&quot;data/typechart.txt&quot;));</span>
+<span class="fc" id="L574">			JSONParser parser = new JSONParser();</span>
+<span class="fc" id="L575">			JSONObject jsonObject = (JSONObject) parser.parse(new FileReader(&quot;data/typechart.txt&quot;));</span>
 
-<span class="nc bnc" id="L577" title="All 2 branches missed.">			for(String type : pokeType){</span>
+<span class="pc bpc" id="L577" title="1 of 2 branches missed.">			for(String type : pokeType){</span>
 
 <span class="nc" id="L579">				int val = (int) (long) ((JSONObject)((JSONObject) jsonObject.get(type)).get(&quot;damageTaken&quot;)).get(moveType);</span>
 
