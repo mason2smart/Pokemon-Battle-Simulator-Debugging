@@ -163,10 +163,36 @@ class BattleLoopTest {
     }
 
     @Test
-    public void testParsePokemonFileTest() {
+    public void testParsePokemonFileOther() {
         Team t = new Team();
         String expected = "(0) Volcarona (1) Dragonite (2) Chandelure (3) Lucario (4) Starmie (5) Scizor";
         loop.parsePokemonFile(t, "data/test/teamTest.txt");
         assertEquals(expected, t.toString());
+    }
+
+    // Data taken from reference implementation here:
+    // https://pycosites.com/pkmn/stat.php
+    @Test
+    public void testParsePokemonFileCorrectStats() {
+        Team t = new Team();
+        loop.parsePokemonFile(t, "data/test/teamTest.txt");
+        Pokemon volcarona = t.getPokemon(0);
+        assertEquals(357, volcarona.getHP());
+        assertEquals(140, volcarona.getAtk());
+        assertEquals(184, volcarona.getDef());
+        assertEquals(336, volcarona.getSpA());
+        assertEquals(246, volcarona.getSpD());
+        assertEquals(299, volcarona.getSpe());
+    }
+
+    @Test
+    public void testParsePokemonFileCorrectMoves() {
+        Team t = new Team();
+        loop.parsePokemonFile(t, "data/test/teamTest.txt");
+        Pokemon volcarona = t.getPokemon(0);
+        assertEquals("Fiery Dance", volcarona.getMove(0).getName());
+        assertEquals("Bug Buzz", volcarona.getMove(1).getName());
+        assertEquals("Giga Drain", volcarona.getMove(2).getName());
+        assertEquals("Hyper Beam", volcarona.getMove(3).getName());
     }
 }
