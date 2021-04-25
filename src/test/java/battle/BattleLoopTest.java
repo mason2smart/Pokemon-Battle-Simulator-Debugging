@@ -136,10 +136,14 @@ class BattleLoopTest {
         assertThrows(NullPointerException.class, () -> loop.checkTypeEffectiveness(type, movetype));
     }
 
-    // TODO: Add tests for parseFile, parsePokemonFile, battle, and startBattle
+    // We won't be able to whitebox test battle much given that almost every action has an element of randomness to it,
+    // the teams are hardcoded in, it requires console input, and we have no guarantee of when the method will actually
+    // terminate.
+    @Test public void testBattle() {
+        loop.startBattle();
+        loop.battle();
+    }
 
-    // parseFile, parsePokemonFile, battle, and startBattle all return void and, at most, print stuff out, so we aren't
-    // able to test them very thoroughly. However, we can still achieve ok branch coverage on most.
     @Test
     public void testStartBattleSucceeds() {
         loop.startBattle();
