@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="main.PokemonBattleSimulatorBlackTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2021-04-26T07:54:50" hostname="ROG-HELIOS" time="12.005">
+  <properties/>
+  <testcase name="NewBattleSimTest()" classname="main.PokemonBattleSimulatorBlackTest" time="12.005">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

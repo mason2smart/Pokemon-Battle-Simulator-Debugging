@@ -2,19 +2,19 @@ battle/Move.java
  battle.Move
 server/ServerBattle.java
  server.ServerBattle
-battle/Team.java
- battle.Team
+main/PokemonBattleSimulator.java
+ main.PokemonBattleSimulator
 server/ServerUtilities.java
  server.ServerUtilities
 battle/Pokemon.java
  battle.Pokemon
 main/Main.java
  main.Main
-client/ClientBattle.java
- client.ClientBattle
-client/ClientReadMessages.java
- client.ClientReadMessages
-main/PokemonBattleSimulator.java
- main.PokemonBattleSimulator
 battle/BattleLoop.java
  battle.BattleLoop
+client/ClientReadMessages.java
+ client.ClientReadMessages
+client/ClientBattle.java
+ client.ClientBattle
+battle/Team.java
+ battle.Team
