@@ -2,6 +2,7 @@ package server;
 
 import battle.Pokemon;
 import battle.Team;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
@@ -9,8 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.io.BufferedReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -22,7 +22,6 @@ class ServerBattleTest {
     Team t1;
     @Mock
     Team t2;
-    //Field sc of type Scanner - was not mocked since Mockito doesn't mock a Final class when 'mock-maker-inline' option is not set
     @Mock
     Socket s1;
     @Mock
@@ -39,11 +38,20 @@ class ServerBattleTest {
     ServerBattle serverBattle;
 
     private Pokemon charizard, geodude, pikachu;
+    private ByteArrayOutputStream outputStreamCaptor;
 
     @BeforeEach
-    void setUp() {
+    private void setUp() {
         createPokemon();
+        outputStreamCaptor = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStreamCaptor));
         MockitoAnnotations.openMocks(this);
+    }
+
+    @AfterEach
+    private void tearDown() {
+        System.setIn(System.in);
+        System.setOut(System.out);
     }
 
     private void createPokemon() {
@@ -215,6 +223,11 @@ class ServerBattleTest {
     }
 
     @Test
+    public void testParseFilePasses() {
+        serverBattle.parseFile();
+    }
+
+    @Test
     public void testParsePokemonFile() {
         Team t = new Team();
         String expected = "(0) Azumarill (1) Bisharp (2) Dragonite (3) Garchomp (4) Landorus-Therian (5) Charizard-Mega-Y";
@@ -254,5 +267,27 @@ class ServerBattleTest {
         assertEquals("Bug Buzz", volcarona.getMove(1).getName());
         assertEquals("Giga Drain", volcarona.getMove(2).getName());
         assertEquals("Hyper Beam", volcarona.getMove(3).getName());
+    }
+
+    @Test
+    public void testBattleInitialMessagesWriter1() throws IOException {
+        when(t1.getPokemon(0)).thenReturn(geodude);
+        when(t2.getPokemon(0)).thenReturn(charizard);
+        InOrder inOrder = inOrder(writer1);
+        serverBattle.battle();
+        inOrder.verify(writer1, times(1)).println("Foe sent out Charizard!");
+        inOrder.verify(writer1, times(1)).println("Go, Geodude!");
+        inOrder.verify(writer1, times(1)).flush();
+    }
+
+    @Test
+    public void testBattleInitialMessagesWriter2() throws IOException {
+        when(t1.getPokemon(0)).thenReturn(geodude);
+        when(t2.getPokemon(0)).thenReturn(charizard);
+        InOrder inOrder = inOrder(writer2);
+        serverBattle.battle();
+        inOrder.verify(writer2, times(1)).println("Foe sent out Geodude!");
+        inOrder.verify(writer2, times(1)).println("Go, Charizard!");
+        inOrder.verify(writer2, times(1)).flush();
     }
 }
