@@ -45,8 +45,6 @@ class TeamTest {
     }
 
     @Test
-    // This is making some pretty serious assumptions about what the expected behavior should be.
-    // TODO: Talk with team about how to handle this.
     public void testCantAddSamePokemonTwice() {
         team.addPokemon(mk1);
         team.addPokemon(mk1);
@@ -130,8 +128,6 @@ class TeamTest {
     }
 
     @Test
-    // TODO: discuss with team whether or not the leading and trailing spaces as well as the extra space between entries
-    //  are expected behavior
     public void testToStringOnePokemon() {
         team.addPokemon(mk1);
         assertEquals("(0) Magikarp", team.toString());

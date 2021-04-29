@@ -32,6 +32,4 @@ public class PokemonBattleSimulatorTest {
         System.setOut(System.out);
         assertEquals(expected, actual);
     }
-
-    // TODO figure how to mock (or somehow simulate) user input to wbox test runSimulator()
 }
