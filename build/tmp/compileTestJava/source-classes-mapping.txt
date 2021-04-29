@@ -2,12 +2,13 @@ server/ServerBattleTest.java
  server.ServerBattleTest
 battle/BattleLoopTest.java
  battle.BattleLoopTest
+server/ServerUtilitiesTest.java
+ server.ServerUtilitiesTest
 battle/MoveTest.java
  battle.MoveTest
 battle/TeamTest.java
  battle.TeamTest
+main/PokemonBattleSimulatorTest.java
+ main.PokemonBattleSimulatorTest
 battle/PokemonTest.java
  battle.PokemonTest
-main/PokemonBattleSimulatorBlackTest.java
- main.PokemonBattleSimulatorBlackTest
- main.PokemonBattleSimulatorBlackTest$1
