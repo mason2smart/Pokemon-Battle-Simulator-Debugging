@@ -28,7 +28,10 @@ Language: Java
 | 4/27 | Finish Presentations |
 | 4/29 | Finish Entire Project 😊 |
 
+# Instructions for Graders
+If using IntelliJ, you can run all the whitebox and mock tests in the IDE. You can generate the code coverage report by opening build.gradle and clicking the run butten next to line 37: "jacoco test report {". The test reports will appear in build/reports/jacoco.
 
+The manual blackbox testing was recorded in Black-Box Testing.xlsx. The presentation slides are in PokemonPresentation.pptx.
 
 # Pokemon Battle Simulator
 A Pokemon Battle engine coded in Java. Has local and multiplayer options (multiplayer not perfect), only runs from command line.
